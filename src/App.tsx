@@ -1,19 +1,52 @@
-import { Button } from "@/components/ui/button"
+import { useSignals } from "@preact/signals-react/runtime"
+import "swiper/css"
+import "swiper/css/effect-fade"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
+import Footer from "./components/Footer"
+import Loader from "./components/Loader"
+import Navbar from "./components/Navbar"
+import { TerminalAbout } from "./components/Terminal"
+import { HexagonPattern } from "./components/ui/hexagon-pattern"
+import { lang, langLoader } from "./context/global"
+import Landing from "./pages/landing/Landing"
+import Customers from "./pages/customers/Customers"
+import Services from "./pages/services/Services"
+import ProductLifecycle from "./pages/product-life-cycle/ProductLifecycle"
+import WhyChooseUs from "./pages/why-us/WhyChooseUs"
+import MoreAbout from "./pages/more-about/MoreAbout"
+import Testimonials from "./pages/testimonials/Testimonials"
+import ContactUs from "./pages/contact/Contact"
+import CaseStudies from "./pages/case-studies/CaseStudies"
+import ServicesN from "./pages/services-n/ServicesN"
 
 export function App() {
+  useSignals()
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
+    <div
+      dir={lang.value == "ar" ? "rtl" : "ltr"}
+      className={`app flex flex-col bg-gradient-cloudy text-alt ${lang.value}`}
+    >
+      <HexagonPattern strokeDasharray="2" />
+      {langLoader.value ? (
+        <Loader />
+      ) : (
+        <>
+          <Navbar />
+          <Landing />
+          <Customers />
+          <MoreAbout />
+          <ServicesN />
+          <Services />
+          <ProductLifecycle />
+          <WhyChooseUs />
+          <TerminalAbout />
+          <CaseStudies />
+          <Testimonials />
+          <ContactUs />
+          <Footer />
+        </>
+      )}
     </div>
   )
 }
