@@ -3,13 +3,22 @@ logs
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
+bun.lockb
 
+# Dependencies
 node_modules
+**/node_modules
+
+# Builds
 dist
+**/dist
 dist-ssr
+server.js
+
+# Environment
+.env
+.env.*.local
 *.local
 
 # Editor directories and files

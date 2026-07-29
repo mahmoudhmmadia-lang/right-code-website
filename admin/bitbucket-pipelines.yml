@@ -1,0 +1,19 @@
+image: node:20
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Build and Deploy
+          caches:
+            - node
+          script:
+            - corepack enable
+            - npm install
+            - npm run build
+            - rm -rf server/dist
+            - mkdir -p server
+            - cp -r dist server/dist
+            - ssh $DEPLOY_HOST "mkdir -p $DEPLOY_PATH"
+            - scp -r server $DEPLOY_HOST:$DEPLOY_PATH/
+            - ssh $DEPLOY_HOST "cd $DEPLOY_PATH/server && docker compose down || true && docker compose up -d --build"

@@ -1,0 +1,162 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DEV_DATABASE_URL")
+}
+
+model Account {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  email       String?  @unique
+  phoneNumber String?  @unique
+  fullName    String   @default("")
+  avatarUrl   String   @default("")
+  locale      String   @default("ar")
+  password    String?
+  token       String?
+  role        Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Section {
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  pageId       String?
+  key          String
+  type         String?
+  status       String?
+  sortOrder    Int?
+  anchor       String?
+  settings     Json?
+  translations Json
+  content      Json?
+  createdAt    DateTime? @default(now())
+  updatedAt    DateTime? @updatedAt
+}
+
+model Page {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  slug         String   @unique
+  kind         String   @default("STANDARD")
+  status       String   @default("DRAFT")
+  template     String?
+  sortOrder    Int      @default(0)
+  isHomePage   Boolean  @default(false)
+  translations Json
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Service {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  slug         String   @unique
+  icon         String?
+  status       String   @default("DRAFT")
+  sortOrder    Int      @default(0)
+  isFeatured   Boolean  @default(false)
+  translations Json
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Project {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  projectNumber   String    @unique
+  name            String
+  slug            String?   @unique
+  type            String    @default("CLIENT")
+  status          String    @default("PLANNING")
+  visibility      String    @default("PRIVATE")
+  progressPercent Int       @default(0)
+  startDate       DateTime?
+  targetEndDate   DateTime?
+  technologies    Json?
+  sortOrder       Int       @default(0)
+  isFeatured      Boolean   @default(false)
+  translations    Json
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model Post {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  slug          String    @unique
+  status        String    @default("DRAFT")
+  publishedAt   DateTime?
+  coverImageUrl String?
+  authorName    String    @default("Right Code")
+  readMinutes   Int       @default(5)
+  sortOrder     Int       @default(0)
+  tags          Json?
+  isFeatured    Boolean   @default(false)
+  translations  Json
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model TrainingProgram {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  slug          String   @unique
+  status        String   @default("DRAFT")
+  level         String   @default("ALL_LEVELS")
+  durationHours Int      @default(0)
+  sortOrder     Int      @default(0)
+  isFeatured    Boolean  @default(false)
+  translations  Json
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Inquiry {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  fullName      String
+  email         String
+  phone         String?
+  organization  String?
+  message       String
+  status        String   @default("NEW")
+  internalNotes String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model JobTitle {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  key          String   @unique
+  sortOrder    Int      @default(0)
+  isActive     Boolean  @default(true)
+  translations Json
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model TeamMember {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  slug         String   @unique
+  fullName     String
+  jobTitleKey  String
+  imageUrl     String?
+  linkedInUrl  String?
+  sortOrder    Int      @default(0)
+  isActive     Boolean  @default(true)
+  translations Json?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model JobApplication {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  fullName     String
+  email        String
+  phone        String?
+  jobTitleId   String   @db.ObjectId
+  linkedInUrl  String?
+  portfolioUrl String?
+  coverNote    String?
+  cvUrl        String
+  status       String   @default("NEW")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

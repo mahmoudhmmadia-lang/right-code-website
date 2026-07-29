@@ -1,0 +1,103 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    "**/.env",
+    "**/.env.*"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        "server/dist/**",
+        "server.js"
+      ]
+    },
+    "build:app": {
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "stage": {
+      "dependsOn": [
+        "build:app"
+      ],
+      "outputs": [
+        "server/dist/**"
+      ]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "typecheck": {
+      "outputs": []
+    },
+    "format": {
+      "cache": false,
+      "outputs": []
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "preview": {
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:push": {
+      "cache": false
+    },
+    "db:clear": {
+      "cache": false
+    },
+    "db:seed": {
+      "cache": false
+    },
+    "db:reset": {
+      "cache": false
+    },
+    "migrate": {
+      "cache": false
+    },
+    "generate": {
+      "cache": false
+    },
+    "studio": {
+      "cache": false,
+      "persistent": true
+    },
+    "seed": {
+      "cache": false
+    },
+    "seed:all": {
+      "cache": false
+    },
+    "seed:admin": {
+      "cache": false
+    },
+    "seed:content": {
+      "cache": false
+    },
+    "seed:home": {
+      "cache": false
+    },
+    "seed:pages": {
+      "cache": false
+    },
+    "seed:routes": {
+      "cache": false
+    },
+    "new-module": {
+      "cache": false
+    },
+    "init-prisma": {
+      "cache": false
+    }
+  }
+}

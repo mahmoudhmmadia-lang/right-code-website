@@ -1,0 +1,171 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --admin-alt: #122423;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --admin-alt: #edf7f5;
+  --background: #0b1918;
+  --foreground: #edf7f5;
+  --card: #102321;
+  --card-foreground: #edf7f5;
+  --popover: #132927;
+  --popover-foreground: #edf7f5;
+  --primary: #35aeb1;
+  --primary-foreground: #041313;
+  --secondary: #18302e;
+  --secondary-foreground: #edf7f5;
+  --muted: #18302e;
+  --muted-foreground: #91aaa7;
+  --accent: #1b3633;
+  --accent-foreground: #f5fffd;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #35aeb1;
+}
+
+.dark .text-main {
+  color: #58c9cb;
+}
+
+@theme {
+  --color-main: #006b70;
+  --color-alt: var(--admin-alt);
+
+  /* Gradients for use with from-/via-/to- utilities */
+  --gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+
+  /* Complete background gradient images */
+  --background-image-gradient-cloudy: linear-gradient(
+    90deg,
+    #fefefe 0%,
+    #dedede 100%
+  );
+  --background-image-gradient-sky: linear-gradient(
+    90deg,
+    #2dc1e4 0%,
+    #26a6c3 100%
+  );
+  --background-image-gradient-sunny: linear-gradient(
+    90deg,
+    #ffe25a 0%,
+    #ffa852 100%
+  );
+  --background-image-gradient-dark: linear-gradient(
+    90deg,
+    #0f161d 0%,
+    #1f2c3a 100%
+  );
+  --background-image-cool-gradient: linear-gradient(
+    90deg,
+    #1dcdfe 0%,
+    #34f5c5 100%
+  );
+  /* More visible diagonal gradients */
+  --background-image-diagonal-cloudy: linear-gradient(
+    -60deg,
+    #ffffff 50%,
+    #cbd5e0 50%
+  );
+  --background-image-diagonal-dark: linear-gradient(
+    -60deg,
+    #1a202c 50%,
+    #4a5568 50%
+  );
+
+  /* Keep original gradients for other uses */
+  --background-image-gradient-cloudy: linear-gradient(
+    90deg,
+    #fefefe 0%,
+    #dedede 100%
+  );
+  --background-image-gradient-dark: linear-gradient(
+    90deg,
+    #0f161d 0%,
+    #1f2c3a 100%
+  );
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+}
+
+.app {
+  width: 100%;
+}

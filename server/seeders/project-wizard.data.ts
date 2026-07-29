@@ -1,0 +1,616 @@
+import { translator } from "./cms-translator.data";
+
+type WizardOptionSeed = {
+  value: string;
+  title: string;
+  description: string;
+  budget: number;
+  weeks: number;
+  multiplier?: number;
+  weekMultiplier?: number;
+};
+
+type WizardQuestionSeed = {
+  id: string;
+  title: string;
+  description: string;
+  icon: "blocks" | "clock" | "gauge" | "layers" | "monitor" | "wrench";
+  options: WizardOptionSeed[];
+};
+
+const questions = {
+  en: [
+    {
+      id: "project",
+      title: "What are we creating?",
+      description: "Choose the closest starting point.",
+      icon: "layers",
+      options: [
+        {
+          value: "website",
+          title: "Marketing website",
+          description: "A fast, polished public website or content platform.",
+          budget: 4500,
+          weeks: 4,
+        },
+        {
+          value: "platform",
+          title: "Business web platform",
+          description: "A secure product with users, workflows, and dashboards.",
+          budget: 12000,
+          weeks: 8,
+        },
+        {
+          value: "mobile",
+          title: "Mobile application",
+          description: "A production iOS and Android experience with an API.",
+          budget: 16000,
+          weeks: 10,
+        },
+        {
+          value: "modernize",
+          title: "Modernize an existing system",
+          description: "Improve, rebuild, or extend software already in use.",
+          budget: 10000,
+          weeks: 8,
+        },
+      ],
+    },
+    {
+      id: "scope",
+      title: "How broad is the first release?",
+      description: "Think about the number of workflows and user roles.",
+      icon: "blocks",
+      options: [
+        {
+          value: "focused",
+          title: "Focused MVP",
+          description: "One core workflow, essential roles, and a clear launch goal.",
+          budget: 0,
+          weeks: 0,
+          multiplier: 1,
+        },
+        {
+          value: "growth",
+          title: "Growth product",
+          description: "Several connected workflows, roles, reporting, and automation.",
+          budget: 0,
+          weeks: 2,
+          multiplier: 1.45,
+        },
+        {
+          value: "enterprise",
+          title: "Organization-wide",
+          description: "Multiple departments, complex permissions, and governance.",
+          budget: 0,
+          weeks: 5,
+          multiplier: 2.2,
+        },
+      ],
+    },
+    {
+      id: "platforms",
+      title: "Where should it work?",
+      description: "Select the delivery footprint for the first release.",
+      icon: "monitor",
+      options: [
+        {
+          value: "web",
+          title: "Responsive web",
+          description: "Desktop, tablet, and mobile browser.",
+          budget: 0,
+          weeks: 0,
+          multiplier: 1,
+        },
+        {
+          value: "web-mobile",
+          title: "Web + mobile app",
+          description: "A web platform plus iOS and Android apps.",
+          budget: 0,
+          weeks: 4,
+          multiplier: 1.45,
+        },
+        {
+          value: "multi",
+          title: "Multi-platform ecosystem",
+          description: "Web, mobile, administration, and supporting services.",
+          budget: 0,
+          weeks: 6,
+          multiplier: 1.7,
+        },
+      ],
+    },
+    {
+      id: "integrations",
+      title: "How connected is the product?",
+      description: "Include external systems, migration, and automation.",
+      icon: "wrench",
+      options: [
+        {
+          value: "light",
+          title: "Light integration",
+          description: "Email, maps, analytics, or one standard service.",
+          budget: 0,
+          weeks: 0,
+        },
+        {
+          value: "standard",
+          title: "Several integrations",
+          description: "Payments, CRM, ERP, identity, or data migration.",
+          budget: 3500,
+          weeks: 2,
+        },
+        {
+          value: "advanced",
+          title: "Complex integration",
+          description: "Legacy systems, high-volume data, or custom protocols.",
+          budget: 8000,
+          weeks: 5,
+        },
+      ],
+    },
+    {
+      id: "pace",
+      title: "What delivery pace do you need?",
+      description: "A faster launch requires more parallel delivery capacity.",
+      icon: "gauge",
+      options: [
+        {
+          value: "flexible",
+          title: "Flexible",
+          description: "Optimize for efficiency with room to refine the scope.",
+          budget: 0,
+          weeks: 2,
+          multiplier: 1,
+        },
+        {
+          value: "balanced",
+          title: "Balanced",
+          description: "A predictable commercial delivery cadence.",
+          budget: 0,
+          weeks: 0,
+          multiplier: 1.05,
+        },
+        {
+          value: "accelerated",
+          title: "Accelerated",
+          description: "Prioritize the earliest responsible launch.",
+          budget: 0,
+          weeks: 0,
+          multiplier: 1.25,
+          weekMultiplier: 0.78,
+        },
+      ],
+    },
+    {
+      id: "support",
+      title: "What happens after launch?",
+      description: "Plan the operating support around your internal team.",
+      icon: "clock",
+      options: [
+        {
+          value: "handover",
+          title: "Launch & handover",
+          description: "Deployment, documentation, and team training.",
+          budget: 0,
+          weeks: 0,
+        },
+        {
+          value: "stabilize",
+          title: "90-day stabilization",
+          description: "Monitoring, fixes, and launch optimization.",
+          budget: 2500,
+          weeks: 1,
+        },
+        {
+          value: "partner",
+          title: "Ongoing product partnership",
+          description: "Continuous support and a roadmap after launch.",
+          budget: 5000,
+          weeks: 2,
+        },
+      ],
+    },
+  ],
+  ar: [
+    {
+      id: "project",
+      title: "ما الذي سنبنيه؟",
+      description: "اختر نقطة البداية الأقرب لمشروعك.",
+      icon: "layers",
+      options: [
+        {
+          value: "website",
+          title: "موقع تعريفي",
+          description: "موقع عام سريع ومتقن أو منصة محتوى.",
+          budget: 4500,
+          weeks: 4,
+        },
+        {
+          value: "platform",
+          title: "منصة أعمال ويب",
+          description: "منتج آمن يضم مستخدمين ومسارات عمل ولوحات معلومات.",
+          budget: 12000,
+          weeks: 8,
+        },
+        {
+          value: "mobile",
+          title: "تطبيق جوال",
+          description: "تجربة إنتاجية لنظامي iOS وAndroid مع واجهة خلفية.",
+          budget: 16000,
+          weeks: 10,
+        },
+        {
+          value: "modernize",
+          title: "تحديث نظام قائم",
+          description: "تحسين أو إعادة بناء أو توسيع برنامج مستخدم حالياً.",
+          budget: 10000,
+          weeks: 8,
+        },
+      ],
+    },
+    {
+      id: "scope",
+      title: "ما حجم الإصدار الأول؟",
+      description: "فكّر في عدد مسارات العمل وأدوار المستخدمين.",
+      icon: "blocks",
+      options: [
+        {
+          value: "focused",
+          title: "نسخة أولية مركزة",
+          description: "مسار أساسي واحد وأدوار ضرورية وهدف إطلاق واضح.",
+          budget: 0,
+          weeks: 0,
+          multiplier: 1,
+        },
+        {
+          value: "growth",
+          title: "منتج للنمو",
+          description: "عدة مسارات مترابطة وأدوار وتقارير وأتمتة.",
+          budget: 0,
+          weeks: 2,
+          multiplier: 1.45,
+        },
+        {
+          value: "enterprise",
+          title: "على مستوى المؤسسة",
+          description: "أقسام متعددة وصلاحيات معقدة وحوكمة.",
+          budget: 0,
+          weeks: 5,
+          multiplier: 2.2,
+        },
+      ],
+    },
+    {
+      id: "platforms",
+      title: "أين يجب أن يعمل؟",
+      description: "حدد نطاق منصات الإصدار الأول.",
+      icon: "monitor",
+      options: [
+        {
+          value: "web",
+          title: "ويب متجاوب",
+          description: "حاسوب وجهاز لوحي ومتصفح جوال.",
+          budget: 0,
+          weeks: 0,
+          multiplier: 1,
+        },
+        {
+          value: "web-mobile",
+          title: "ويب وتطبيق جوال",
+          description: "منصة ويب مع تطبيقات iOS وAndroid.",
+          budget: 0,
+          weeks: 4,
+          multiplier: 1.45,
+        },
+        {
+          value: "multi",
+          title: "منظومة متعددة المنصات",
+          description: "ويب وجوال وإدارة وخدمات مساندة.",
+          budget: 0,
+          weeks: 6,
+          multiplier: 1.7,
+        },
+      ],
+    },
+    {
+      id: "integrations",
+      title: "ما مستوى ترابط المنتج؟",
+      description: "ضمّن الأنظمة الخارجية وترحيل البيانات والأتمتة.",
+      icon: "wrench",
+      options: [
+        {
+          value: "light",
+          title: "تكامل بسيط",
+          description: "بريد أو خرائط أو تحليلات أو خدمة قياسية واحدة.",
+          budget: 0,
+          weeks: 0,
+        },
+        {
+          value: "standard",
+          title: "عدة تكاملات",
+          description: "مدفوعات أو CRM أو ERP أو هوية أو ترحيل بيانات.",
+          budget: 3500,
+          weeks: 2,
+        },
+        {
+          value: "advanced",
+          title: "تكامل معقد",
+          description: "أنظمة قديمة أو بيانات كثيفة أو بروتوكولات مخصصة.",
+          budget: 8000,
+          weeks: 5,
+        },
+      ],
+    },
+    {
+      id: "pace",
+      title: "ما سرعة التنفيذ المطلوبة؟",
+      description: "الإطلاق الأسرع يحتاج قدرة تنفيذ متوازية أكبر.",
+      icon: "gauge",
+      options: [
+        {
+          value: "flexible",
+          title: "مرنة",
+          description: "الأولوية للكفاءة مع مساحة لتحسين النطاق.",
+          budget: 0,
+          weeks: 2,
+          multiplier: 1,
+        },
+        {
+          value: "balanced",
+          title: "متوازنة",
+          description: "وتيرة تنفيذ تجارية مستقرة ومتوقعة.",
+          budget: 0,
+          weeks: 0,
+          multiplier: 1.05,
+        },
+        {
+          value: "accelerated",
+          title: "مسرّعة",
+          description: "الأولوية لأقرب إطلاق مسؤول ممكن.",
+          budget: 0,
+          weeks: 0,
+          multiplier: 1.25,
+          weekMultiplier: 0.78,
+        },
+      ],
+    },
+    {
+      id: "support",
+      title: "ماذا بعد الإطلاق؟",
+      description: "خطط للدعم التشغيلي وفق فريقك الداخلي.",
+      icon: "clock",
+      options: [
+        {
+          value: "handover",
+          title: "إطلاق وتسليم",
+          description: "نشر وتوثيق وتدريب الفريق.",
+          budget: 0,
+          weeks: 0,
+        },
+        {
+          value: "stabilize",
+          title: "استقرار لمدة 90 يوماً",
+          description: "مراقبة وإصلاحات وتحسين ما بعد الإطلاق.",
+          budget: 2500,
+          weeks: 1,
+        },
+        {
+          value: "partner",
+          title: "شراكة تطوير مستمرة",
+          description: "دعم مستمر وخارطة طريق بعد الإطلاق.",
+          budget: 5000,
+          weeks: 2,
+        },
+      ],
+    },
+  ],
+  tr: [
+    {
+      id: "project",
+      title: "Ne oluşturuyoruz?",
+      description: "Projenize en yakın başlangıç noktasını seçin.",
+      icon: "layers",
+      options: [
+        {
+          value: "website",
+          title: "Tanıtım web sitesi",
+          description: "Hızlı ve özenli bir kurumsal site veya içerik platformu.",
+          budget: 4500,
+          weeks: 4,
+        },
+        {
+          value: "platform",
+          title: "İş web platformu",
+          description: "Kullanıcıları, iş akışları ve panoları olan güvenli ürün.",
+          budget: 12000,
+          weeks: 8,
+        },
+        {
+          value: "mobile",
+          title: "Mobil uygulama",
+          description: "API ile üretime hazır iOS ve Android deneyimi.",
+          budget: 16000,
+          weeks: 10,
+        },
+        {
+          value: "modernize",
+          title: "Mevcut sistemi yenileme",
+          description: "Kullanımdaki yazılımı iyileştirme, yeniden kurma veya genişletme.",
+          budget: 10000,
+          weeks: 8,
+        },
+      ],
+    },
+    {
+      id: "scope",
+      title: "İlk sürüm ne kadar geniş?",
+      description: "İş akışı ve kullanıcı rolü sayısını düşünün.",
+      icon: "blocks",
+      options: [
+        {
+          value: "focused",
+          title: "Odaklı MVP",
+          description: "Bir temel akış, gerekli roller ve net yayın hedefi.",
+          budget: 0,
+          weeks: 0,
+          multiplier: 1,
+        },
+        {
+          value: "growth",
+          title: "Büyüme ürünü",
+          description: "Bağlantılı akışlar, roller, raporlama ve otomasyon.",
+          budget: 0,
+          weeks: 2,
+          multiplier: 1.45,
+        },
+        {
+          value: "enterprise",
+          title: "Kurum geneli",
+          description: "Birden fazla departman, karmaşık izinler ve yönetişim.",
+          budget: 0,
+          weeks: 5,
+          multiplier: 2.2,
+        },
+      ],
+    },
+    {
+      id: "platforms",
+      title: "Nerede çalışmalı?",
+      description: "İlk sürümün platform kapsamını seçin.",
+      icon: "monitor",
+      options: [
+        {
+          value: "web",
+          title: "Duyarlı web",
+          description: "Masaüstü, tablet ve mobil tarayıcı.",
+          budget: 0,
+          weeks: 0,
+          multiplier: 1,
+        },
+        {
+          value: "web-mobile",
+          title: "Web + mobil",
+          description: "Web platformu ile iOS ve Android uygulamaları.",
+          budget: 0,
+          weeks: 4,
+          multiplier: 1.45,
+        },
+        {
+          value: "multi",
+          title: "Çok platformlu ekosistem",
+          description: "Web, mobil, yönetim ve destek hizmetleri.",
+          budget: 0,
+          weeks: 6,
+          multiplier: 1.7,
+        },
+      ],
+    },
+    {
+      id: "integrations",
+      title: "Ürün ne kadar bağlantılı?",
+      description: "Harici sistemleri, veri taşıma ve otomasyonu dahil edin.",
+      icon: "wrench",
+      options: [
+        {
+          value: "light",
+          title: "Hafif entegrasyon",
+          description: "E-posta, harita, analiz veya tek standart servis.",
+          budget: 0,
+          weeks: 0,
+        },
+        {
+          value: "standard",
+          title: "Birkaç entegrasyon",
+          description: "Ödeme, CRM, ERP, kimlik veya veri taşıma.",
+          budget: 3500,
+          weeks: 2,
+        },
+        {
+          value: "advanced",
+          title: "Karmaşık entegrasyon",
+          description: "Eski sistemler, yüksek hacimli veri veya özel protokoller.",
+          budget: 8000,
+          weeks: 5,
+        },
+      ],
+    },
+    {
+      id: "pace",
+      title: "Hangi teslimat hızına ihtiyacınız var?",
+      description: "Daha hızlı yayın, daha fazla paralel kapasite gerektirir.",
+      icon: "gauge",
+      options: [
+        {
+          value: "flexible",
+          title: "Esnek",
+          description: "Kapsamı iyileştirme alanıyla verimliliği optimize edin.",
+          budget: 0,
+          weeks: 2,
+          multiplier: 1,
+        },
+        {
+          value: "balanced",
+          title: "Dengeli",
+          description: "Öngörülebilir ticari teslimat temposu.",
+          budget: 0,
+          weeks: 0,
+          multiplier: 1.05,
+        },
+        {
+          value: "accelerated",
+          title: "Hızlandırılmış",
+          description: "Mümkün olan en erken sorumlu yayına öncelik verin.",
+          budget: 0,
+          weeks: 0,
+          multiplier: 1.25,
+          weekMultiplier: 0.78,
+        },
+      ],
+    },
+    {
+      id: "support",
+      title: "Yayından sonra ne olacak?",
+      description: "Operasyon desteğini iç ekibinize göre planlayın.",
+      icon: "clock",
+      options: [
+        {
+          value: "handover",
+          title: "Yayın ve devir",
+          description: "Dağıtım, dokümantasyon ve ekip eğitimi.",
+          budget: 0,
+          weeks: 0,
+        },
+        {
+          value: "stabilize",
+          title: "90 günlük stabilizasyon",
+          description: "İzleme, düzeltme ve yayın optimizasyonu.",
+          budget: 2500,
+          weeks: 1,
+        },
+        {
+          value: "partner",
+          title: "Sürekli ürün ortaklığı",
+          description: "Yayın sonrası sürekli destek ve yol haritası.",
+          budget: 5000,
+          weeks: 2,
+        },
+      ],
+    },
+  ],
+} satisfies Record<"en" | "ar" | "tr", WizardQuestionSeed[]>;
+
+export const projectWizardData = {
+  pageId: "project-wizard",
+  key: "project-wizard",
+  type: "CUSTOM",
+  status: "PUBLISHED",
+  sortOrder: 10,
+  anchor: "project-estimator",
+  content: { component: "project-wizard", visible: true },
+  translations: {
+    en: { body: { badge: translator.en.wizardBadge, heading: translator.en.wizardTitle, subheading: translator.en.wizardSubtitle, chapterLabel: translator.en.wizardBadge, copy: Object.fromEntries(Object.entries(translator.en).filter(([key]) => key.startsWith("wizard") || key === "languageLoading" || key === "blogEmpty")), wizard: { questions: questions.en } } },
+    ar: { body: { badge: translator.ar.wizardBadge, heading: translator.ar.wizardTitle, subheading: translator.ar.wizardSubtitle, chapterLabel: translator.ar.wizardBadge, copy: Object.fromEntries(Object.entries(translator.ar).filter(([key]) => key.startsWith("wizard") || key === "languageLoading" || key === "blogEmpty")), wizard: { questions: questions.ar } } },
+    tr: { body: { badge: translator.tr.wizardBadge, heading: translator.tr.wizardTitle, subheading: translator.tr.wizardSubtitle, chapterLabel: translator.tr.wizardBadge, copy: Object.fromEntries(Object.entries(translator.tr).filter(([key]) => key.startsWith("wizard") || key === "languageLoading" || key === "blogEmpty")), wizard: { questions: questions.tr } } },
+  },
+};

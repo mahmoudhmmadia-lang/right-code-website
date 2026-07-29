@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    container_name: web-template
+    environment:
+      PORT: 3001
+      API_URL: http://host.docker.internal:5000
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 384M
+        reservations:
+          cpus: "0.25"
+          memory: 128M
