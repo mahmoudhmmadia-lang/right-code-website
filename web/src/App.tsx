@@ -2,6 +2,7 @@ import Footer from "@/components/Footer"
 import LanguageLoader from "@/components/LanguageLoader"
 import Navbar from "@/components/Navbar"
 import SeoManager from "@/components/SeoManager"
+import MagneticCursor from "@/components/MagneticCursor"
 import { lang, langLoader } from "@/context/global"
 import Routes from "@/routes/Routes"
 import { useSignals } from "@preact/signals-react/runtime"
@@ -14,6 +15,7 @@ export function App() {
       className={`app site-shell min-h-screen overflow-x-clip ${lang.value}`}
     >
       <SeoManager />
+      <MagneticCursor />
       {langLoader.value ? (
         <LanguageLoader />
       ) : (

@@ -7,23 +7,23 @@ export const translator = {
     nav_contact: "Contact",
     nav_blog: "Blog",
     // Hero
-    heroTitle: "We don't just write code.\nWe architect the future.",
+    heroTitle: "Custom software that powers serious organizations",
     heroDescription:
-      "Premium software engineering for companies that refuse to settle. Scalable systems, bulletproof architecture, and products that dominate markets.",
+      "RightCode designs and builds secure, tailor-made digital systems for public institutions, NGOs, and private companies — from discovery and UX to deployment, training, and long-term support.",
 
     // CTAs
     ctaPrimary: "Start your project",
     ctaSecondary: "View our work",
 
     // Stats
-    stat1Number: "150+",
-    stat1Label: "Products shipped",
-    stat2Number: "99.9%",
-    stat2Label: "Uptime delivered",
-    stat3Number: "10x",
-    stat3Label: "Performance gain",
-    stat4Number: "24/7",
-    stat4Label: "Elite support",
+    stat1Number: "2022",
+    stat1Label: "Founded",
+    stat2Number: "3",
+    stat2Label: "Core sectors",
+    stat3Number: "5",
+    stat3Label: "Delivery phases",
+    stat4Number: "2",
+    stat4Label: "Regional locations",
 
     // Tags
     tag1: "Clean architecture",
@@ -50,7 +50,7 @@ export const translator = {
       "After launch, we stay with you — monitoring, maintaining, and continuously improving your systems as your needs grow.",
     servicesQuote:
       "Technology that mirrors your reality — not the other way around. Every integration, dashboard, and system is shaped by your unique workflows.",
-    servicesQuoteAuthor: "Moder Services, human-first engineering",
+    servicesQuoteAuthor: "RightCode · human-first engineering",
     servicesCta: "Start building with us →",
     lifecycleBadge: "Our Process",
     lifecycleTitle: "A clear process, from idea to stable deployment",
@@ -97,9 +97,9 @@ export const translator = {
     whyUsQuoteText:
       "Every line of code we write is written with the next five years in mind",
     whyUsHoverHint: "Hover to learn more →",
-    whyUsStat1: "100+ Projects Delivered",
-    whyUsStat2: "98% Client Retention",
-    whyUsStat3: "24/7 Critical Support",
+    whyUsStat1: "Founded in 2022",
+    whyUsStat2: "Public · NGO · Private",
+    whyUsStat3: "Discovery through support",
     whyUsCta: "Become our next success story →",
 
     whyUsMetric1Label: "Projects Delivered",
@@ -107,14 +107,14 @@ export const translator = {
     whyUsMetric3Label: "Critical Support",
     whyUsMetric4Label: "Years Experience",
     whyUsTestimonial:
-      "Rightcode didn't just build our platform — they became an extension of our team. Their strategic guidance saved us months of trial and error.",
-    whyUsTestimonialAuthor: "Sarah Chen, CTO at InnovateFlow",
+      "Our partnership with RightCode was seamless and efficient. We successfully scaled to over 100,000 active users, and the application reliably handled this massive load.",
+    whyUsTestimonialAuthor: "Dr. Mahmoud, Founder of 70Cola",
     customersBadge: "Trusted Partners",
     customersTitle:
       "Trusted by teams across government, NGOs, and the private sector",
     customersSubtitle:
       "From internal tools to full digital transformation projects, we support organizations that rely on stable, secure systems every day",
-    customersTrustBadge: "Trusted by organizations worldwide",
+    customersTrustBadge: "Trusted by organizations across EMEA",
     partnerCategoryPartner: "Partner",
     partnerCategoryPrivate: "Private sector",
     partnerCategoryPublic: "Public sector",
@@ -168,13 +168,13 @@ export const translator = {
 
     painPointsCTA:
       "These are exactly the problems we solve — let's talk about how we can fix them for your organization",
-    landingBadge: "Next-Gen Engineering",
+    landingBadge: "Custom software engineering",
     testimonialsBadge: "Client Stories",
     testimonialsTitle: "What our clients say",
     testimonialsSubtitle:
-      "Real results from real partnerships — hear from teams we've helped transform",
-    testimonialsTrustBadge: "Trusted by 100+ organizations worldwide",
-    testimonialsRating: "⭐ 4.9/5 average rating from 150+ reviews",
+      "Published feedback from teams using platforms engineered and supported by RightCode.",
+    testimonialsTrustBadge: "Selected client feedback",
+    testimonialsRating: "Measured outcomes from long-term partnerships",
 
     // Testimonial 1
     testimonial1Quote:
@@ -189,16 +189,14 @@ export const translator = {
     testimonial2Title: "Product Manager at SDO",
 
     // Testimonial 3
-    testimonial3Quote:
-      "RightCode didn't just build our platform — they became an extension of our team. Their strategic guidance saved us months of trial and error.",
-    testimonial3Name: "Sarah Chen",
-    testimonial3Title: "CTO at InnovateFlow",
+    testimonial3Quote: "",
+    testimonial3Name: "",
+    testimonial3Title: "",
 
     // Testimonial 4
-    testimonial4Quote:
-      "The dashboards and reporting tools they built gave us visibility we never had before. Decision-making is now data-driven and instant.",
-    testimonial4Name: "Mohammed Al-Rashid",
-    testimonial4Title: "Operations Director at GulfTech",
+    testimonial4Quote: "",
+    testimonial4Name: "",
+    testimonial4Title: "",
     contactBadge: "Contact Us",
     contactTitle: "Let's start a conversation",
     contactSubtitle:
@@ -514,6 +512,7 @@ export const translator = {
     blogReadTime: "min read",
     blogEmpty: "New articles are being prepared. Check back soon.",
     blogBack: "Back to insights",
+    blogDefaultCategory: "Insight",
     teamBadge: "People behind the work",
     teamTitle: "Small team. Serious engineering.",
     teamSubtitle:
@@ -529,7 +528,7 @@ export const translator = {
     careerEmail: "Email address",
     careerPhone: "Phone number",
     careerRole: "Preferred role",
-    careerRolePlaceholder: "Select a role",
+    careerRolePlaceholder: "Select a listed role or type your own",
     careerLinkedIn: "LinkedIn profile",
     careerPortfolio: "Portfolio or website",
     careerNote: "A little about you",
@@ -578,23 +577,23 @@ export const translator = {
     nav_contact: "تواصل معنا",
     nav_blog: "المدونة",
 
-    heroTitle: "نحن لا نكتب كود فقط.\nنحن نصمم المستقبل.",
+    heroTitle: "برمجيات مخصصة تدعم المؤسسات الجادة",
     heroDescription:
-      "هندسة برمجية متميزة للشركات التي ترفض التسوية. أنظمة قابلة للتطوير، بنية تحتية متينة، ومنتجات تهيمن على الأسواق.",
+      "تصمم رايت كود أنظمة رقمية آمنة ومخصصة للمؤسسات العامة والمنظمات والشركات الخاصة، من الاكتشاف وتجربة المستخدم إلى النشر والتدريب والدعم طويل الأمد.",
 
     // CTAs
     ctaPrimary: "ابدأ مشروعك",
     ctaSecondary: "شاهد أعمالنا",
 
     // Stats
-    stat1Number: "150+",
-    stat1Label: "منتج تم إطلاقه",
-    stat2Number: "99.9%",
-    stat2Label: "توافر مستمر",
-    stat3Number: "10x",
-    stat3Label: "زيادة الأداء",
-    stat4Number: "24/7",
-    stat4Label: "دعم متميز",
+    stat1Number: "2022",
+    stat1Label: "سنة التأسيس",
+    stat2Number: "3",
+    stat2Label: "قطاعات أساسية",
+    stat3Number: "5",
+    stat3Label: "مراحل للتنفيذ",
+    stat4Number: "2",
+    stat4Label: "موقعان إقليميان",
 
     // Tags
     tag1: "بنية نظيفة",
@@ -621,7 +620,7 @@ export const translator = {
       "بعد الإطلاق، نبقى معك — نراقب ونصون ونحسن أنظمتك باستمرار مع نمو احتياجاتك.",
     servicesQuote:
       "التقنية التي تعكس واقعك — ليس العكس. كل تكامل ولوحة معلومات ونظام يتم تشكيله حسب سير عملك الفريد.",
-    servicesQuoteAuthor: "مودر سيرفيسز، هندسة إنسانية أولاً",
+    servicesQuoteAuthor: "رايت كود · هندسة تتمحور حول الإنسان",
     servicesCta: "ابدأ البناء معنا ",
     lifecycleBadge: "عمليتنا",
     lifecycleTitle: "عملية واضحة، من الفكرة إلى النشر المستقر",
@@ -647,7 +646,7 @@ export const translator = {
     lifecycleCta: "ابدأ رحلتك ",
     whyUsBadge: "لماذا تختارنا",
     whyUsTitle: "لماذا تختار المؤسسات العمل مع Rightcode",
-    whyUsSubtitle: "نحن لست مجرد مزودي خدمات — نحن شركاء长期 في نجاحك",
+    whyUsSubtitle: "لسنا مجرد مزود خدمات، بل شريك تقني طويل الأمد في نجاحك",
     whyUsReason1Title: "حلول مخصصة، وليس مقاساً واحداً يناسب الجميع",
     whyUsReason1Desc:
       "كل مشروع يبدأ بعملياتك وقيودك، وليس بمكدس التقنيات المفضل لدينا",
@@ -667,24 +666,23 @@ export const translator = {
     whyUsQuoteText:
       "كل سطر كود نكتبه يُكتب مع وضع السنوات الخمس القادمة في الاعتبار",
     whyUsHoverHint: "مرر لمعرفة المزيد ",
-    whyUsStat1: "+100 مشروع تم تسليمها",
-    whyUsStat2: "%98 احتفاظ بالعملاء",
-    whyUsStat3: "دعم حاسم 24/7",
+    whyUsStat1: "تأسست عام 2022",
+    whyUsStat2: "عام · منظمات · خاص",
+    whyUsStat3: "من الاكتشاف إلى الدعم",
     whyUsCta: "كن قصتنا الناجحة التالية ",
     whyUsMetric1Label: "مشروع تم تسليمه",
     whyUsMetric2Label: "احتفاظ بالعملاء",
     whyUsMetric3Label: "دعم حاسم",
     whyUsMetric4Label: "سنوات خبرة",
     whyUsTestimonial:
-      "لم يبني Rightcode منصتنا فحسب — بل أصبحوا امتداداً لفريقنا. لقد وفرت توجيهاتهم الإستراتيجية أشهراً من التجربة والخطأ",
-    whyUsTestimonialAuthor:
-      "سارة تشن، المدير التنفيذي للتكنولوجيا في InnovateFlow",
+      "كانت شراكتنا مع RightCode سلسة وفعالة. نجحنا في التوسع إلى أكثر من 100,000 مستخدم نشط، وتعامل التطبيق بشكل موثوق مع هذا الحمل الهائل.",
+    whyUsTestimonialAuthor: "د. محمود، مؤسس 70Cola",
     customersBadge: "شركاء موثوقون",
     customersTitle:
       "موثوق من قبل الفرق في القطاعات الحكومية، والمنظمات غير الحكومية، والقطاع الخاص",
     customersSubtitle:
       "من الأدوات الداخلية إلى مشاريع التحول الرقمي الكاملة، ندعم المنظمات التي تعتمد على أنظمة مستقرة وآمنة يومياً",
-    customersTrustBadge: "موثوق من قبل منظمات حول العالم",
+    customersTrustBadge: "موثوق من مؤسسات في منطقة أوروبا والشرق الأوسط وأفريقيا",
     partnerCategoryPartner: "شريك",
     partnerCategoryPrivate: "القطاع الخاص",
     partnerCategoryPublic: "القطاع العام",
@@ -738,13 +736,13 @@ export const translator = {
 
     painPointsCTA:
       "هذه هي بالضبط المشاكل التي نحلها — دعنا نتحدث عن كيفية إصلاحها لمؤسستك",
-    landingBadge: "هندسة الجيل القادم",
+    landingBadge: "هندسة برمجيات مخصصة",
     testimonialsBadge: "قصص العملاء",
     testimonialsTitle: "ماذا يقول عملاؤنا",
     testimonialsSubtitle:
-      "نتائج حقيقية من شراكات حقيقية — اسمع من الفرق التي ساعدناها على التحول",
-    testimonialsTrustBadge: "موثوق من قبل أكثر من 100 منظمة حول العالم",
-    testimonialsRating: "⭐ 4.9/5 متوسط التقييم من أكثر من 150 مراجعة",
+      "آراء منشورة من فرق تستخدم منصات قامت رايت كود بهندستها ودعمها.",
+    testimonialsTrustBadge: "آراء مختارة من العملاء",
+    testimonialsRating: "نتائج قابلة للقياس من شراكات طويلة الأمد",
 
     // Testimonial 1
     testimonial1Quote:
@@ -759,16 +757,14 @@ export const translator = {
     testimonial2Title: "مدير المنتج في SDO",
 
     // Testimonial 3
-    testimonial3Quote:
-      "لم يبني RightCode منصتنا فحسب — بل أصبحوا امتداداً لفريقنا. لقد وفرت توجيهاتهم الإستراتيجية أشهراً من التجربة والخطأ.",
-    testimonial3Name: "سارة تشن",
-    testimonial3Title: "المدير التنفيذي للتكنولوجيا في InnovateFlow",
+    testimonial3Quote: "",
+    testimonial3Name: "",
+    testimonial3Title: "",
 
     // Testimonial 4
-    testimonial4Quote:
-      "لوحات المعلومات وأدوات التقارير التي بنوها أعطتنا رؤية لم تكن لدينا من قبل. أصبح اتخاذ القرار الآن قائماً على البيانات وفورياً.",
-    testimonial4Name: "محمد الراشد",
-    testimonial4Title: "مدير العمليات في GulfTech",
+    testimonial4Quote: "",
+    testimonial4Name: "",
+    testimonial4Title: "",
     contactBadge: "تواصل معنا",
     contactTitle: "تواصل معنا",
     contactSubtitle:
@@ -1080,6 +1076,7 @@ export const translator = {
     blogReadTime: "دقائق للقراءة",
     blogEmpty: "نعمل على إعداد مقالات جديدة. عد قريباً.",
     blogBack: "العودة إلى المقالات",
+    blogDefaultCategory: "رؤية",
     teamBadge: "الأشخاص خلف العمل",
     teamTitle: "فريق صغير. هندسة جادة.",
     teamSubtitle:
@@ -1095,7 +1092,7 @@ export const translator = {
     careerEmail: "البريد الإلكتروني",
     careerPhone: "رقم الهاتف",
     careerRole: "الدور المفضل",
-    careerRolePlaceholder: "اختر دوراً",
+    careerRolePlaceholder: "اختر مسمى من القائمة أو اكتب مسماك",
     careerLinkedIn: "حساب لينكدإن",
     careerPortfolio: "معرض الأعمال أو الموقع",
     careerNote: "نبذة قصيرة عنك",
@@ -1143,23 +1140,23 @@ export const translator = {
     nav_contact: "İletişim",
     nav_blog: "Blog",
     // Hero
-    heroTitle: "Sadece kod yazmıyoruz.\nGeleceği tasarlıyoruz.",
+    heroTitle: "Kritik kuruluşları güçlendiren özel yazılımlar",
     heroDescription:
-      "Pazarları domine eden, ölçeklenebilir sistemler, sağlam mimari ve ürünler için ödün vermeyen şirketlere premium yazılım mühendisliği.",
+      "RightCode; kamu kurumları, STK'lar ve özel şirketler için keşif ve UX'ten dağıtım, eğitim ve uzun vadeli desteğe kadar güvenli, özel dijital sistemler tasarlar ve geliştirir.",
 
     // CTAs
     ctaPrimary: "Projenize başlayın",
     ctaSecondary: "Çalışmalarımızı görün",
 
     // Stats
-    stat1Number: "150+",
-    stat1Label: "Gönderilen ürün",
-    stat2Number: "99.9%",
-    stat2Label: "Kesintisiz çalışma",
-    stat3Number: "10x",
-    stat3Label: "Performans artışı",
-    stat4Number: "24/7",
-    stat4Label: "Elit destek",
+    stat1Number: "2022",
+    stat1Label: "Kuruluş yılı",
+    stat2Number: "3",
+    stat2Label: "Temel sektör",
+    stat3Number: "5",
+    stat3Label: "Teslimat aşaması",
+    stat4Number: "2",
+    stat4Label: "Bölgesel konum",
 
     // Tags
     tag1: "Temiz mimari",
@@ -1187,7 +1184,7 @@ export const translator = {
       "Başlattıktan sonra, sizinle kalırız — ihtiyaçlarınız büyüdükçe sistemlerinizi izler, bakımını yapar ve sürekli iyileştiririz.",
     servicesQuote:
       "Gerçekliğinizi yansıtan teknoloji — tersi değil. Her entegrasyon, pano ve sistem benzersiz iş akışlarınıza göre şekillendirilir.",
-    servicesQuoteAuthor: "Moder Services, insan odaklı mühendislik",
+    servicesQuoteAuthor: "RightCode · insan odaklı mühendislik",
     servicesCta: "Bizimle inşa etmeye başla →",
     lifecycleBadge: "Sürecimiz",
     lifecycleTitle: "Fikirden kararlı dağıtıma net bir süreç",
@@ -1234,23 +1231,23 @@ export const translator = {
     whyUsQuoteText:
       "Yazdığımız her satır kod, önümüzdeki beş yıl düşünülerek yazılır",
     whyUsHoverHint: "Daha fazlası için üzerine gel →",
-    whyUsStat1: "100+ Teslim Edilen Proje",
-    whyUsStat2: "%98 Müşteri Tutma",
-    whyUsStat3: "7/24 Kritik Destek",
+    whyUsStat1: "2022'de kuruldu",
+    whyUsStat2: "Kamu · STK · Özel",
+    whyUsStat3: "Keşiften desteğe",
     whyUsCta: "Bir sonraki başarı hikayemiz olun →",
     whyUsMetric1Label: "Teslim Edilen Proje",
     whyUsMetric2Label: "Müşteri Tutma",
     whyUsMetric3Label: "Kritik Destek",
     whyUsMetric4Label: "Yıllık Deneyim",
     whyUsTestimonial:
-      "Rightcode sadece platformumuzu inşa etmedi — ekibimizin bir parçası oldular. Stratejik rehberlikleri aylarca sürecek deneme yanılmayı kurtardı",
-    whyUsTestimonialAuthor: "Sarah Chen, InnovateFlow CTO",
+      "RightCode ile ortaklığımız sorunsuz ve verimliydi. 100.000'den fazla aktif kullanıcıya başarıyla ölçeklendik ve uygulama bu büyük yükü güvenilir biçimde karşıladı.",
+    whyUsTestimonialAuthor: "Dr. Mahmoud, 70Cola Kurucusu",
     customersBadge: "Güvenilir Ortaklar",
     customersTitle:
       "Devlet, STK'lar ve özel sektördeki ekipler tarafından güveniliyor",
     customersSubtitle:
       "Dahili araçlardan tam dijital dönüşüm projelerine kadar, her gün istikrarlı ve güvenli sistemlere güvenen kuruluşları destekliyoruz",
-    customersTrustBadge: "Dünya çapında kuruluşlar tarafından güvenilmektedir",
+    customersTrustBadge: "EMEA genelindeki kuruluşlar tarafından güveniliyor",
     partnerCategoryPartner: "Ortak",
     partnerCategoryPrivate: "Özel sektör",
     partnerCategoryPublic: "Kamu sektörü",
@@ -1304,14 +1301,13 @@ export const translator = {
 
     painPointsCTA:
       "Bunlar tam olarak çözdüğümüz sorunlar — kuruluşunuz için bunları nasıl düzeltebileceğimizi konuşalım",
-    landingBadge: "Yeni Nesil Mühendislik",
+    landingBadge: "Özel yazılım mühendisliği",
     testimonialsBadge: "Müşteri Hikayeleri",
     testimonialsTitle: "Müşterilerimiz ne diyor",
     testimonialsSubtitle:
-      "Gerçek ortaklıklardan gerçek sonuçlar — dönüştürmeye yardım ettiğimiz ekiplerden duyun",
-    testimonialsTrustBadge:
-      "Dünya çapında 100+ kuruluş tarafından güvenilmektedir",
-    testimonialsRating: "⭐ 150+ yorumdan 4.9/5 ortalama puan",
+      "RightCode tarafından geliştirilen ve desteklenen platformları kullanan ekiplerin yayınlanmış görüşleri.",
+    testimonialsTrustBadge: "Seçilmiş müşteri görüşleri",
+    testimonialsRating: "Uzun vadeli ortaklıklardan ölçülebilir sonuçlar",
 
     // Testimonial 1
     testimonial1Quote:
@@ -1326,16 +1322,14 @@ export const translator = {
     testimonial2Title: "SDO'da Ürün Müdürü",
 
     // Testimonial 3
-    testimonial3Quote:
-      "RightCode sadece platformumuzu inşa etmedi — ekibimizin bir parçası oldular. Stratejik rehberlikleri aylarca sürecek deneme yanılmayı kurtardı.",
-    testimonial3Name: "Sarah Chen",
-    testimonial3Title: "InnovateFlow CTO",
+    testimonial3Quote: "",
+    testimonial3Name: "",
+    testimonial3Title: "",
 
     // Testimonial 4
-    testimonial4Quote:
-      "İnşa ettikleri panolar ve raporlama araçları bize daha önce hiç sahip olmadığımız bir görünürlük kazandırdı. Karar alma artık veri odaklı ve anlık.",
-    testimonial4Name: "Mohammed Al-Rashid",
-    testimonial4Title: "GulfTech Operasyon Direktörü",
+    testimonial4Quote: "",
+    testimonial4Name: "",
+    testimonial4Title: "",
     contactBadge: "Bize Ulaşın",
     contactTitle: "Bir sohbet başlatalım",
     contactSubtitle:
@@ -1663,6 +1657,7 @@ export const translator = {
     blogReadTime: "dk okuma",
     blogEmpty: "Yeni yazılar hazırlanıyor. Yakında tekrar bakın.",
     blogBack: "İçgörülere dön",
+    blogDefaultCategory: "İçgörü",
     teamBadge: "İşin arkasındaki insanlar",
     teamTitle: "Küçük ekip. Ciddi mühendislik.",
     teamSubtitle:
@@ -1678,7 +1673,7 @@ export const translator = {
     careerEmail: "E-posta adresi",
     careerPhone: "Telefon numarası",
     careerRole: "Tercih edilen rol",
-    careerRolePlaceholder: "Bir rol seçin",
+    careerRolePlaceholder: "Listeden seçin veya kendi unvanınızı yazın",
     careerLinkedIn: "LinkedIn profili",
     careerPortfolio: "Portföy veya web sitesi",
     careerNote: "Kısaca kendinizden bahsedin",

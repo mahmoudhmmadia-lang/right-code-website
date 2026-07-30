@@ -7,6 +7,7 @@ import { mediaUrl } from "@/lib/media"
 import { useSignals } from "@preact/signals-react/runtime"
 import { ShieldCheck } from "lucide-react"
 import { useLogin } from "./useLogin"
+import LazyImage from "@/components/LazyImage"
 
 function Login() {
   useSignals()
@@ -17,9 +18,12 @@ function Login() {
     <AuthContainer>
       <div className="mb-8 text-center">
         <div className="mx-auto mb-5 flex size-20 items-center justify-center rounded-2xl bg-alt shadow-xl shadow-alt/15">
-          <img
+          <LazyImage
             src={mediaUrl("/assets/home/logo.png")}
             alt="RightCode"
+            width={64}
+            height={64}
+            priority
             className="size-16 object-contain"
           />
         </div>

@@ -19,6 +19,7 @@
     "seed:admin": "tsx seeders/admin.seeder.ts",
     "seed:content": "tsx seeders/content.seeder.ts",
     "seed:home": "tsx seeders/home.seeder.ts",
+    "seed:job-applications": "tsx seeders/job-applications.seeder.ts",
     "seed:pages": "tsx seeders/pages.seeder.ts",
     "seed:routes": "tsx seeders/route-sections.seeder.ts",
     "new-module": "./scripts/new-module.sh",

@@ -16,6 +16,7 @@ import {
 } from "lucide-react"
 import { NavLink } from "react-router-dom"
 import LanguageSelect from "./LanguageSelect"
+import LazyImage from "./LazyImage"
 
 const navItems = [
   { to: "/", key: "home", icon: Home, enabled: true },
@@ -50,9 +51,12 @@ function Sidebar() {
         <div className="flex h-20 items-center justify-between border-b border-white/10 px-5">
           <div className="flex items-center gap-3">
             <div className="flex size-11 items-center justify-center rounded-xl bg-main/10">
-              <img
+              <LazyImage
                 src={mediaUrl("/assets/home/logo.png")}
                 alt="RightCode"
+                width={36}
+                height={36}
+                priority
                 className="size-9 object-contain"
               />
             </div>

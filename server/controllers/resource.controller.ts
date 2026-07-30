@@ -9,6 +9,7 @@ export type ResourceConfig = {
   searchFields: string[];
   publicWhere?: Record<string, unknown>;
   orderBy?: Array<Record<string, "asc" | "desc">>;
+  slugLookup?: boolean;
 };
 
 function modelFor(config: ResourceConfig) {
@@ -104,6 +105,20 @@ export function resourceHandlers(config: ResourceConfig) {
         const id = String(req.params.id ?? "");
         if (!validId(id)) return clientErrorResponse({ res, req, message: "INVALID_ID" });
         const record = await model.findUnique({ where: { id } });
+        if (!record) return clientErrorResponse({ res, req, message: "NOT_FOUND", status: 404 });
+        return successResponse({ res, req, data: record });
+      } catch (err) {
+        return serverErrorResponse({ err, res, req });
+      }
+    },
+
+    getBySlug: async (req: Request, res: Response) => {
+      try {
+        const slug = String(req.params.slug ?? "").trim();
+        if (!slug) return clientErrorResponse({ res, req, message: "INVALID_DATA" });
+        const record = await model.findFirst({
+          where: { AND: [{ slug }, ...(config.publicWhere ? [config.publicWhere] : [])] },
+        });
         if (!record) return clientErrorResponse({ res, req, message: "NOT_FOUND", status: 404 });
         return successResponse({ res, req, data: record });
       } catch (err) {

@@ -42,7 +42,7 @@ function homeTranslation(
     painPoints: {
       badge: copy.painPointsBadge, heading: copy.painPointsTitle, subheading: copy.painPointsSubtitle,
       cta: copy.painPointsCTA,
-      items: [1, 2, 3, 4].map((index) => ({
+      items: [1, 2].map((index) => ({
         title: copy[`painPoint${index}Title` as keyof typeof copy],
         description: copy[`painPoint${index}Desc` as keyof typeof copy],
       })),

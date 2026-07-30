@@ -16,6 +16,7 @@ export type FieldConfig = {
     valueField: string;
     labelField: string;
   };
+  group?: "identity" | "delivery" | "presentation" | "overview" | "story" | "outcomes" | "seo";
 };
 
 export type ResourceConfig = {

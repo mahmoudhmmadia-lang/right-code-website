@@ -31,7 +31,6 @@ export type RoutePageConfig = {
 };
 
 export type TextItem = { text: string };
-export type CopyEntry = { key: string; value: string };
 export type AboutWhyFields = {
   quoteTitle: string;
   quoteText: string;
@@ -76,6 +75,23 @@ export type LifecycleFields = {
 };
 export type ProjectsShowcaseFields = {
   emptyMessage: string;
+  detailsLabel: string;
+  visitLabel: string;
+  featuredLabel: string;
+  backLabel: string;
+  clientLabel: string;
+  yearLabel: string;
+  servicesLabel: string;
+  technologiesLabel: string;
+  nextProjectLabel: string;
+  allProjectsLabel: string;
+  notFoundTitle: string;
+  notFoundMessage: string;
+  contextLabel: string;
+  challengeLabel: string;
+  solutionLabel: string;
+  capabilitiesLabel: string;
+  impactLabel: string;
   statusLabels: Array<{ value: string; label: string }>;
 };
 export type CaseStudiesFields = {
@@ -160,8 +176,6 @@ export type RouteSectionFields = {
   subheading: string;
   chapterLabel: string;
   errorMessage: string;
-  copyEntries: CopyEntry[];
-  copy?: Record<string, string>;
   aboutWhy?: AboutWhyFields;
   aboutTerminal?: AboutTerminalFields;
   servicesDetail?: ServicesDetailFields;

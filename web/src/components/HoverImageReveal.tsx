@@ -9,6 +9,7 @@ import {
 import { ArrowUpRight } from "lucide-react"
 import { useRef, useState } from "react"
 import { mediaUrl } from "@/lib/media"
+import LazyImage from "./LazyImage"
 
 export type HoverImageRevealItem = {
   title?: string
@@ -71,11 +72,10 @@ export function HoverImageReveal({
             aria-hidden="true"
           >
             <div className="absolute inset-4 bottom-14 grid place-items-center overflow-hidden rounded-[1.3rem] bg-[radial-gradient(circle_at_top,#fff_0%,#eef7f5_68%,#d8e8e6_100%)] p-5 ring-1 ring-black/[0.04]">
-              <img
+              <LazyImage
                 src={mediaUrl(activeItem.image)}
                 alt=""
                 className="block h-full w-full object-contain drop-shadow-[0_8px_18px_rgba(5,32,33,.12)]"
-                decoding="async"
               />
             </div>
             <figcaption className="absolute right-4 bottom-3 left-4 flex items-center justify-between rounded-full bg-[#071819]/90 px-3 py-2 text-[9px] font-black tracking-[0.14em] text-white uppercase backdrop-blur-md">

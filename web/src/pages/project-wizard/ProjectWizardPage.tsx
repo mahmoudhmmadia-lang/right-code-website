@@ -5,7 +5,6 @@ import {
   type RouteChapterConfig,
 } from "@/components/RouteScrollExperience"
 import LangHandler from "@/components/LangHandler"
-import { RouteCopyProvider } from "@/context/route-copy"
 import { EstimateResult } from "./components/EstimateResult"
 import { WizardStep } from "./components/WizardStep"
 import { useProjectWizard } from "./useProjectWizard"
@@ -18,8 +17,7 @@ export default function ProjectWizardPage() {
     { id: "project-estimator-workspace", labelText: body?.heading },
   ] satisfies RouteChapterConfig[]
   return (
-    <RouteCopyProvider copy={body?.copy}>
-      <AnimatedRoutePage className="pt-16" chapters={chapters} variant="wizard">
+    <AnimatedRoutePage className="pt-16" chapters={chapters} variant="wizard">
       <RouteChapter
         id={chapters[0].id}
         index={0}
@@ -51,7 +49,6 @@ export default function ProjectWizardPage() {
           </div>
         </PageLayout>
       </RouteChapter>
-      </AnimatedRoutePage>
-    </RouteCopyProvider>
+    </AnimatedRoutePage>
   )
 }

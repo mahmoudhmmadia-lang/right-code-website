@@ -16,7 +16,6 @@ const emptyFields = (): RouteSectionFields => ({
   subheading: "",
   chapterLabel: "",
   errorMessage: "",
-  copyEntries: [],
 });
 
 const emptyAboutWhy = () => ({ quoteTitle: "", quoteText: "", hoverHint: "", reasons: [{ icon: "link", title: "", description: "" }] });
@@ -27,7 +26,27 @@ const emptyServicesDetail = () => ({
   workWaysTitle: "", workModels: [{ icon: "compass", title: "", description: "" }], bottomTitle: "", bottomDescription: "", bottomButton: "", bottomToast: "",
 });
 const emptyLifecycle = () => ({ workflowLabel: "", activePhaseLabel: "", steps: [{ number: "01", icon: "compass", title: "", description: "" }] });
-const emptyProjectsShowcase = () => ({ emptyMessage: "", statusLabels: [{ value: "PLANNING", label: "" }] });
+const emptyProjectsShowcase = () => ({
+  emptyMessage: "",
+  detailsLabel: "",
+  visitLabel: "",
+  featuredLabel: "",
+  backLabel: "",
+  clientLabel: "",
+  yearLabel: "",
+  servicesLabel: "",
+  technologiesLabel: "",
+  nextProjectLabel: "",
+  allProjectsLabel: "",
+  notFoundTitle: "",
+  notFoundMessage: "",
+  contextLabel: "",
+  challengeLabel: "",
+  solutionLabel: "",
+  capabilitiesLabel: "",
+  impactLabel: "",
+  statusLabels: [{ value: "PLANNING", label: "" }],
+});
 const emptyCaseStudies = () => ({
   activeLabel: "", contextLabel: "", challengesLabel: "", solutionLabel: "", elementsLabel: "", resultsLabel: "", commonTitle: "",
   commonItems: [{ text: "" }], ctaText: "", primaryButton: "", primaryToast: "", secondaryButton: "", secondaryToast: "",
@@ -72,7 +91,6 @@ function fieldsFrom(section?: RouteSectionRecord, locale?: RouteContentLocale): 
   return {
     ...emptyFields(),
     ...body,
-    copyEntries: Object.entries(body?.copy ?? {}).map(([key, value]) => ({ key, value })),
     aboutWhy: body?.aboutWhy ? { ...emptyAboutWhy(), ...body.aboutWhy } : undefined,
     aboutTerminal: body?.aboutTerminal ? { ...emptyAboutTerminal(), ...body.aboutTerminal } : undefined,
     servicesDetail: body?.servicesDetail ? { ...emptyServicesDetail(), ...body.servicesDetail } : undefined,
@@ -124,6 +142,8 @@ export function routeContentDefaults(config: RoutePageConfig, records: RouteSect
 }
 
 function cleanFields(fields: RouteSectionFields): RouteSectionFields {
+  const generatedId = (prefix: string, value: string | undefined, index: number) =>
+    value?.trim() || `${prefix}-${index + 1}`;
   const cleaned: RouteSectionFields = {
     badge: fields.badge.trim(),
     eyebrow: fields.eyebrow.trim(),
@@ -131,19 +151,52 @@ function cleanFields(fields: RouteSectionFields): RouteSectionFields {
     subheading: fields.subheading.trim(),
     chapterLabel: fields.chapterLabel.trim(),
     errorMessage: fields.errorMessage.trim(),
-    copyEntries: [],
   };
-  cleaned.copy = Object.fromEntries(fields.copyEntries.filter((item) => item.key.trim()).map((item) => [item.key.trim(), item.value.trim()]));
-  delete (cleaned as unknown as Record<string, unknown>).copyEntries;
   if (fields.aboutWhy) cleaned.aboutWhy = fields.aboutWhy;
   if (fields.aboutTerminal) cleaned.aboutTerminal = fields.aboutTerminal;
-  if (fields.servicesDetail) cleaned.servicesDetail = fields.servicesDetail;
+  if (fields.servicesDetail) {
+    cleaned.servicesDetail = {
+      ...fields.servicesDetail,
+      services: fields.servicesDetail.services.map((item, index) => ({
+        ...item,
+        id: generatedId("service", item.id, index),
+      })),
+    };
+  }
   if (fields.lifecycle) cleaned.lifecycle = fields.lifecycle;
-  if (fields.projectsShowcase) cleaned.projectsShowcase = fields.projectsShowcase;
-  if (fields.caseStudies) cleaned.caseStudies = fields.caseStudies;
+  if (fields.projectsShowcase) {
+    cleaned.projectsShowcase = {
+      ...fields.projectsShowcase,
+      statusLabels: fields.projectsShowcase.statusLabels.map((item, index) => ({
+        ...item,
+        value: generatedId("status", item.value, index).toUpperCase().replaceAll("-", "_"),
+      })),
+    };
+  }
+  if (fields.caseStudies) {
+    cleaned.caseStudies = {
+      ...fields.caseStudies,
+      cases: fields.caseStudies.cases.map((item, index) => ({
+        ...item,
+        id: generatedId("case", item.id, index),
+      })),
+    };
+  }
   if (fields.teamPeople) cleaned.teamPeople = fields.teamPeople;
   if (fields.teamCareers) cleaned.teamCareers = fields.teamCareers;
-  if (fields.wizard) cleaned.wizard = fields.wizard;
+  if (fields.wizard) {
+    cleaned.wizard = {
+      ...fields.wizard,
+      questions: fields.wizard.questions.map((question, questionIndex) => ({
+        ...question,
+        id: generatedId("question", question.id, questionIndex),
+        options: question.options.map((option, optionIndex) => ({
+          ...option,
+          value: generatedId("option", option.value, optionIndex),
+        })),
+      })),
+    };
+  }
   if (fields.contact) {
     cleaned.contact = {
       ...fields.contact,
@@ -165,8 +218,8 @@ function cleanFields(fields: RouteSectionFields): RouteSectionFields {
       officeAddress: fields.contact.officeAddress.trim(),
       officeNote: fields.contact.officeNote.trim(),
       notice: fields.contact.notice.trim(),
-      chatScenarios: fields.contact.chatScenarios.map((item) => ({
-        id: item.id.trim(),
+      chatScenarios: fields.contact.chatScenarios.map((item, index) => ({
+        id: generatedId("scenario", item.id, index),
         prompt: item.prompt.trim(),
         user: item.user.trim(),
         reply: item.reply.trim(),

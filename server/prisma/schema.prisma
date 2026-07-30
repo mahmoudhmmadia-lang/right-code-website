@@ -72,6 +72,12 @@ model Project {
   progressPercent Int       @default(0)
   startDate       DateTime?
   targetEndDate   DateTime?
+  clientName      String?
+  completionYear  Int?
+  projectUrl      String?
+  coverImageUrl   String?
+  galleryImages   Json?
+  accentColor     String?
   technologies    Json?
   sortOrder       Int       @default(0)
   isFeatured      Boolean   @default(false)
@@ -151,12 +157,14 @@ model JobApplication {
   fullName     String
   email        String
   phone        String?
-  jobTitleId   String   @db.ObjectId
+  jobTitleId   String?  @db.ObjectId
+  customJobTitle String?
   linkedInUrl  String?
   portfolioUrl String?
   coverNote    String?
   cvUrl        String
   status       String   @default("NEW")
+  internalNotes String?
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 }

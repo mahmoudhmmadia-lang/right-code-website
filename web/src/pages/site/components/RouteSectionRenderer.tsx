@@ -5,7 +5,6 @@ import ProductLifecycle from "@/pages/product-life-cycle/ProductLifecycle"
 import ServicesN from "@/pages/services-n/ServicesN"
 import Contact from "@/pages/contact/Contact"
 import WhyChooseUs from "@/pages/why-us/WhyChooseUs"
-import { RouteCopyProvider } from "@/context/route-copy"
 import type { RouteSection } from "../types"
 
 export function RouteSectionRenderer({ section }: { section: RouteSection }) {
@@ -35,5 +34,5 @@ export function RouteSectionRenderer({ section }: { section: RouteSection }) {
     default:
       return null
   }
-  return <RouteCopyProvider copy={section.body?.copy}>{rendered}</RouteCopyProvider>
+  return rendered
 }

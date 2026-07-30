@@ -609,8 +609,8 @@ export const projectWizardData = {
   anchor: "project-estimator",
   content: { component: "project-wizard", visible: true },
   translations: {
-    en: { body: { badge: translator.en.wizardBadge, heading: translator.en.wizardTitle, subheading: translator.en.wizardSubtitle, chapterLabel: translator.en.wizardBadge, copy: Object.fromEntries(Object.entries(translator.en).filter(([key]) => key.startsWith("wizard") || key === "languageLoading" || key === "blogEmpty")), wizard: { questions: questions.en } } },
-    ar: { body: { badge: translator.ar.wizardBadge, heading: translator.ar.wizardTitle, subheading: translator.ar.wizardSubtitle, chapterLabel: translator.ar.wizardBadge, copy: Object.fromEntries(Object.entries(translator.ar).filter(([key]) => key.startsWith("wizard") || key === "languageLoading" || key === "blogEmpty")), wizard: { questions: questions.ar } } },
-    tr: { body: { badge: translator.tr.wizardBadge, heading: translator.tr.wizardTitle, subheading: translator.tr.wizardSubtitle, chapterLabel: translator.tr.wizardBadge, copy: Object.fromEntries(Object.entries(translator.tr).filter(([key]) => key.startsWith("wizard") || key === "languageLoading" || key === "blogEmpty")), wizard: { questions: questions.tr } } },
+    en: { body: { badge: translator.en.wizardBadge, heading: translator.en.wizardTitle, subheading: translator.en.wizardSubtitle, chapterLabel: translator.en.wizardBadge, wizard: { questions: questions.en } } },
+    ar: { body: { badge: translator.ar.wizardBadge, heading: translator.ar.wizardTitle, subheading: translator.ar.wizardSubtitle, chapterLabel: translator.ar.wizardBadge, wizard: { questions: questions.ar } } },
+    tr: { body: { badge: translator.tr.wizardBadge, heading: translator.tr.wizardTitle, subheading: translator.tr.wizardSubtitle, chapterLabel: translator.tr.wizardBadge, wizard: { questions: questions.tr } } },
   },
 };

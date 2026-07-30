@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { FieldControl, type DraftValue } from "./FieldControl";
 import { CONTENT_LOCALES, type ContentLocale, type FieldConfig } from "./types";
 import type { Lang } from "@/context/global";
-import type { ResourceCopyText } from "./resource-copy";
+import { fieldGroupLabel, type ResourceCopyText } from "./resource-copy";
+import { fieldGroups } from "./field-groups";
 
 export type TranslationDrafts = Record<ContentLocale, Record<string, DraftValue>>;
 
@@ -32,17 +33,16 @@ export function MultilingualFields({ fields, value, onChange, copy, adminLocale 
         </TabsList>
         {CONTENT_LOCALES.map((locale) => (
           <TabsContent key={locale} value={locale}>
-            <div className="grid gap-x-5 gap-y-5 md:grid-cols-2">
-              {fields.map((field) => (
-                <FieldControl
-                  key={field.name}
-                  field={field}
-                  locale={locale}
-                  adminLocale={adminLocale}
-                  copy={copy}
-                  value={value[locale][field.name] ?? ""}
-                  onChange={(next) => onChange(locale, field.name, next)}
-                />
+            <div className="grid gap-7">
+              {fieldGroups(fields).map((group) => (
+                <div key={group.key}>
+                  {group.key !== "default" ? <h4 className="mb-4 text-xs font-black tracking-[.12em] text-main uppercase">{fieldGroupLabel(adminLocale, group.key)}</h4> : null}
+                  <div className="grid gap-x-5 gap-y-5 md:grid-cols-2">
+                    {group.items.map((field) => (
+                      <FieldControl key={field.name} field={field} locale={locale} adminLocale={adminLocale} copy={copy} value={value[locale][field.name] ?? ""} onChange={(next) => onChange(locale, field.name, next)} />
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </TabsContent>

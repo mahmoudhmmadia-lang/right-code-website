@@ -53,7 +53,7 @@ export function ContactContentFields({ locale, copy }: { locale: RouteContentLoc
         <div className="grid gap-4">
           {scenarios.fields.map((field, index) => (
             <div key={field.id} className="grid gap-3 rounded-2xl border border-alt/10 p-4 md:grid-cols-2">
-              <FormField label={copy.id}><Input {...register(`${prefix}.chatScenarios.${index}.id`)} /></FormField>
+              <input type="hidden" {...register(`${prefix}.chatScenarios.${index}.id`)} />
               <FormField label={copy.prompt}><Input {...register(`${prefix}.chatScenarios.${index}.prompt`)} /></FormField>
               <FormField label={copy.userMessage} className="md:col-span-2"><Textarea {...register(`${prefix}.chatScenarios.${index}.user`)} /></FormField>
               <FormField label={copy.reply} className="md:col-span-2"><Textarea {...register(`${prefix}.chatScenarios.${index}.reply`)} /></FormField>
@@ -63,7 +63,7 @@ export function ContactContentFields({ locale, copy }: { locale: RouteContentLoc
               <div className="md:col-span-2"><RemoveButton label={copy.remove} onClick={() => scenarios.remove(index)} /></div>
             </div>
           ))}
-          <Button type="button" variant="outline" onClick={() => scenarios.append({ id: "", prompt: "", user: "", reply: "", impact: "", metric: "", metricLabel: "" })}><Plus className="size-4" />{copy.addScenario}</Button>
+          <Button type="button" variant="outline" onClick={() => scenarios.append({ id: `scenario-${scenarios.fields.length + 1}`, prompt: "", user: "", reply: "", impact: "", metric: "", metricLabel: "" })}><Plus className="size-4" />{copy.addScenario}</Button>
         </div>
       </SectionCard>
 

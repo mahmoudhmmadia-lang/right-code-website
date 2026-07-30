@@ -54,6 +54,66 @@ const projectStatusLabels: Record<Locale, Record<string, string>> = {
   tr: { PLANNING: "Planlanıyor", ACTIVE: "Aktif", ON_HOLD: "Beklemede", IN_REVIEW: "İncelemede", COMPLETED: "Tamamlandı", CANCELLED: "İptal edildi", ARCHIVED: "Arşivlendi" },
 };
 
+const projectShowcaseLabels: Record<Locale, Record<string, string>> = {
+  en: {
+    detailsLabel: "Explore case study",
+    visitLabel: "Visit live project",
+    featuredLabel: "Featured project",
+    backLabel: "Back to all work",
+    clientLabel: "Client / product",
+    yearLabel: "Year",
+    servicesLabel: "Services delivered",
+    technologiesLabel: "Technology",
+    nextProjectLabel: "Next project",
+    allProjectsLabel: "View all projects",
+    notFoundTitle: "Project not found",
+    notFoundMessage: "This project is unavailable or is no longer public.",
+    contextLabel: "The context",
+    challengeLabel: "The challenge",
+    solutionLabel: "What we built",
+    capabilitiesLabel: "Core capabilities",
+    impactLabel: "Product impact",
+  },
+  ar: {
+    detailsLabel: "استكشف دراسة المشروع",
+    visitLabel: "زيارة المشروع",
+    featuredLabel: "مشروع مميز",
+    backLabel: "العودة إلى جميع الأعمال",
+    clientLabel: "العميل / المنتج",
+    yearLabel: "السنة",
+    servicesLabel: "الخدمات المقدمة",
+    technologiesLabel: "التقنيات",
+    nextProjectLabel: "المشروع التالي",
+    allProjectsLabel: "عرض جميع المشاريع",
+    notFoundTitle: "المشروع غير موجود",
+    notFoundMessage: "هذا المشروع غير متاح أو لم يعد منشوراً للعامة.",
+    contextLabel: "السياق",
+    challengeLabel: "التحدي",
+    solutionLabel: "ما قمنا ببنائه",
+    capabilitiesLabel: "الإمكانات الأساسية",
+    impactLabel: "أثر المنتج",
+  },
+  tr: {
+    detailsLabel: "Proje detaylarını incele",
+    visitLabel: "Canlı projeyi ziyaret et",
+    featuredLabel: "Öne çıkan proje",
+    backLabel: "Tüm çalışmalara dön",
+    clientLabel: "Müşteri / ürün",
+    yearLabel: "Yıl",
+    servicesLabel: "Sunulan hizmetler",
+    technologiesLabel: "Teknoloji",
+    nextProjectLabel: "Sonraki proje",
+    allProjectsLabel: "Tüm projeleri görüntüle",
+    notFoundTitle: "Proje bulunamadı",
+    notFoundMessage: "Bu proje kullanılamıyor veya artık herkese açık değil.",
+    contextLabel: "Bağlam",
+    challengeLabel: "Zorluk",
+    solutionLabel: "Ne geliştirdik",
+    capabilitiesLabel: "Temel yetenekler",
+    impactLabel: "Ürün etkisi",
+  },
+};
+
 function contactContent(locale: Locale) {
   const placeholders = {
     en: { name: "Ahmed Al-Rashid", organization: "Company or organization", email: "ahmed@company.com", phone: "+963 ...", message: "Tell us about your project..." },
@@ -124,8 +184,8 @@ function contactContent(locale: Locale) {
       {
         type: "phone",
         label: text(locale, "contactPhoneLabel"),
-        value: "+963 100 476 997",
-        href: "tel:+963100476997",
+        value: "+963 997 476 100",
+        href: "tel:+963997476100",
         note: text(locale, "contactPhoneNote"),
       },
     ],
@@ -134,9 +194,8 @@ function contactContent(locale: Locale) {
     officeNote: text(locale, "contactOfficeNote"),
     notice: text(locale, "contactNotReady"),
     companyLinks: [
-      { label: "Facebook", url: "https://facebook.com/rightcode" },
-      { label: "LinkedIn", url: "https://linkedin.com/company/rightcode" },
-      { label: "Instagram", url: "https://instagram.com/rightcode" },
+      { label: "LinkedIn", url: "https://www.linkedin.com/company/rightcodeio/" },
+      { label: "WhatsApp", url: "https://wa.me/963997476100" },
     ],
   };
 }
@@ -279,18 +338,6 @@ export const routeSections = [
   }),
 ];
 
-const copyPrefixes: Record<string, string[]> = {
-  "about-why": ["whyUs"],
-  "services-detail": ["service", "services", "workWays", "workDiscovery", "workEndToEnd", "workOngoing"],
-  "services-lifecycle": ["lifecycle"],
-  "work-projects": ["caseBadge", "caseTitle", "caseSubtitle"],
-  "work-case-studies": ["case", "tabPublic", "tabNGO", "tabPrivate", "tabCross"],
-  "team-people": ["team"],
-  "team-careers": ["team", "career"],
-  "contact-overview": ["contact", "stat1", "stat2"],
-  "blog-index": ["blog"],
-};
-
 const terminalCopy: Record<Locale, Record<string, string>> = {
   en: {
     terminalWhoCommand: "$ whoami",
@@ -329,32 +376,22 @@ const extraCopy: Record<Locale, Record<string, Record<string, string>>> = {
     "services-detail": { servicesProjectToast: "Let's talk about your project", servicesNeedsToast: "Talk to us about your needs" },
     "work-case-studies": { caseActiveLabel: "Active case study", caseDiscussToast: "Let's discuss your challenge", caseExploreToast: "Explore our services" },
     "team-people": { teamPreviousMember: "Previous team member", teamNextMember: "Next team member" },
-    "blog-index": { blogDefaultCategory: "Insight" },
   },
   ar: {
     "services-detail": { servicesProjectToast: "لنتحدث عن مشروعك", servicesNeedsToast: "تحدث معنا عن احتياجاتك" },
     "work-case-studies": { caseActiveLabel: "دراسة الحالة الحالية", caseDiscussToast: "لنتحدث عن تحديك", caseExploreToast: "استكشف خدماتنا" },
     "team-people": { teamPreviousMember: "عضو الفريق السابق", teamNextMember: "عضو الفريق التالي" },
-    "blog-index": { blogDefaultCategory: "رؤية" },
   },
   tr: {
     "services-detail": { servicesProjectToast: "Projenizi konuşalım", servicesNeedsToast: "İhtiyaçlarınızı bizimle konuşun" },
     "work-case-studies": { caseActiveLabel: "Aktif vaka çalışması", caseDiscussToast: "Zorluğunuzu konuşalım", caseExploreToast: "Hizmetlerimizi keşfedin" },
     "team-people": { teamPreviousMember: "Önceki ekip üyesi", teamNextMember: "Sonraki ekip üyesi" },
-    "blog-index": { blogDefaultCategory: "İçgörü" },
   },
 };
 
 for (const routeSection of routeSections) {
   for (const locale of locales) {
     const body = routeSection.translations[locale].body;
-    const prefixes = copyPrefixes[routeSection.key] ?? [];
-    body.copy = Object.fromEntries(
-      Object.entries(translator[locale]).filter(([key]) => prefixes.some((prefix) => key.startsWith(prefix))),
-    );
-    if (routeSection.key === "about-terminal") body.copy = terminalCopy[locale];
-    Object.assign(body.copy as Record<string, string>, extraCopy[locale][routeSection.key] ?? {});
-
     if (routeSection.key === "about-why") {
       body.aboutWhy = {
         quoteTitle: text(locale, "whyUsQuote"),
@@ -440,6 +477,7 @@ for (const routeSection of routeSections) {
     if (routeSection.key === "work-projects") {
       body.projectsShowcase = {
         emptyMessage: projectEmptyMessages[locale],
+        ...projectShowcaseLabels[locale],
         statusLabels: Object.entries(projectStatusLabels[locale]).map(([value, label]) => ({ value, label })),
       };
     }

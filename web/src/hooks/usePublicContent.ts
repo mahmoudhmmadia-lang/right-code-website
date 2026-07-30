@@ -22,10 +22,16 @@ export type PublicProject = {
   id: string
   projectNumber: string
   name: string
-  slug?: string
+  slug: string
   type: string
   status: string
   progressPercent: number
+  clientName?: string
+  completionYear?: number
+  projectUrl?: string
+  coverImageUrl?: string
+  galleryImages?: string[]
+  accentColor?: string
   technologies?: string[]
   title?: string
   subtitle?: string
@@ -33,8 +39,14 @@ export type PublicProject = {
   context?: string
   challenges?: string
   solution?: string
+  services?: string[]
   keyElements?: string[]
   results?: string[]
+  impactSummary?: string
+  testimonialQuote?: string
+  testimonialAuthor?: string
+  metaTitle?: string
+  metaDescription?: string
   isFeatured: boolean
 }
 
@@ -58,4 +70,17 @@ export function useServices() {
 
 export function useProjects() {
   return useCollection<PublicProject>("/projects", "public-projects")
+}
+
+export function useProject(slug?: string) {
+  const locale = lang.value
+  return useCustomQuery<PublicProject>({
+    queryKey: ["public-project", slug, locale],
+    enabled: Boolean(slug),
+    staleTime: 5 * 60 * 1000,
+    queryFn: async () =>
+      (
+        await myAxios.get<Envelope<PublicProject>>(`/projects/by-slug/${slug}`)
+      ).data.materials,
+  })
 }

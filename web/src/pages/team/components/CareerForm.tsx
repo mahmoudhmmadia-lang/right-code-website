@@ -66,22 +66,23 @@ export function CareerForm({ team, content }: { team: ReturnTypeOfUseTeam; conte
         </label>
         <label className="text-sm font-bold text-alt dark:text-foreground">
           {content?.roleLabel}
-          <select
+          <input
             className={fieldClass}
-            name="jobTitleId"
-            value={team.form.jobTitleId}
-            onChange={team.updateField}
+            name="jobTitle"
+            value={team.form.jobTitle}
+            onChange={team.updateJobTitle}
             required
-          >
-            <option value="">
-              {content?.rolePlaceholder}
-            </option>
+            minLength={2}
+            maxLength={120}
+            list="rightcode-job-titles"
+            placeholder={content?.rolePlaceholder}
+            autoComplete="organization-title"
+          />
+          <datalist id="rightcode-job-titles">
             {team.jobTitles.map((title) => (
-              <option key={title.id} value={title.id}>
-                {title.title}
-              </option>
+              <option key={title.id} value={title.title} />
             ))}
-          </select>
+          </datalist>
         </label>
         <label className="text-sm font-bold text-alt dark:text-foreground">
           {content?.linkedInLabel}

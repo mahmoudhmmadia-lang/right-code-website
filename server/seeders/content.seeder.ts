@@ -167,9 +167,112 @@ const services = [
 
 const projects = [
   {
+    projectNumber: "RC-004",
+    name: "KayanOS",
+    slug: "kayanos-work-operating-system",
+    clientName: "KayanOS",
+    completionYear: 2026,
+    projectUrl: "https://kayanos.app/",
+    coverImageUrl: "https://kayanos.com/logo.png",
+    accentColor: "#176b66",
+    technologies: ["Web platform", "Progressive web app", "Workflow automation", "Analytics", "AI assistance"],
+    translations: {
+      en: {
+        title: "KayanOS — one place to run the work",
+        subtitle: "Operations & project management platform",
+        summary:
+          "A unified workspace for turning organizational goals into clear procedures, coordinated projects, visible progress, and day-to-day action.",
+        context:
+          "Growing organizations often operate across disconnected task tools, documents, spreadsheets, email, and informal processes. Teams need structure without adding another rigid system.",
+        challenges:
+          "Bring procedures, projects, people, reporting, and collaboration into one understandable product while keeping complex operational work approachable for every role.",
+        solution:
+          "KayanOS creates a shared operating layer where teams can standardize procedures, manage tasks and budgets, track progress visually, collaborate, and use data to guide the next decision.",
+        services: ["Product strategy", "UX and interface design", "Platform engineering", "Workflow architecture", "Quality assurance"],
+        keyElements: [
+          "Procedure and workflow builder",
+          "Project, task, and budget management",
+          "Dashboards and operational reporting",
+          "Team collaboration and document workflows",
+          "AI-assisted guidance and recommendations",
+        ],
+        results: [
+          "One clear workspace instead of scattered operational tools",
+          "Reusable procedures that make execution more consistent",
+          "Live visibility for teams and decision-makers",
+          "A flexible foundation for startups, enterprises, and nonprofits",
+        ],
+        impactSummary: "KayanOS turns scattered operational knowledge into a visible, repeatable system—giving teams a clearer way to coordinate work and leaders a more dependable view of progress.",
+        metaTitle: "KayanOS work operating system case study",
+        metaDescription: "Explore KayanOS, a unified platform for procedures, projects, tasks, reporting, collaboration, and AI-assisted operations.",
+      },
+      ar: {
+        title: "KayanOS — مكان واحد لإدارة العمل",
+        subtitle: "منصة لإدارة العمليات والمشاريع",
+        summary:
+          "مساحة عمل موحّدة تحوّل أهداف المؤسسة إلى إجراءات واضحة ومشاريع منسقة وتقدم مرئي وعمل يومي منظم.",
+        context:
+          "تعمل المؤسسات النامية غالباً عبر أدوات مهام ووثائق وجداول وبريد إلكتروني وعمليات غير مترابطة، وتحتاج إلى هيكل واضح دون إضافة نظام جامد جديد.",
+        challenges:
+          "جمع الإجراءات والمشاريع والأشخاص والتقارير والتعاون في منتج واحد مفهوم، مع إبقاء العمل التشغيلي المعقد سهلاً لكل دور.",
+        solution:
+          "يوفر KayanOS طبقة تشغيل مشتركة لتوحيد الإجراءات وإدارة المهام والميزانيات ومتابعة التقدم بصرياً والتعاون واتخاذ القرارات بالاعتماد على البيانات.",
+        services: ["استراتيجية المنتج", "تصميم التجربة والواجهات", "هندسة المنصة", "هندسة مسارات العمل", "ضمان الجودة"],
+        keyElements: [
+          "منشئ الإجراءات ومسارات العمل",
+          "إدارة المشاريع والمهام والميزانيات",
+          "لوحات المعلومات والتقارير التشغيلية",
+          "تعاون الفرق ومسارات الوثائق",
+          "إرشاد وتوصيات مدعومة بالذكاء الاصطناعي",
+        ],
+        results: [
+          "مساحة عمل واضحة بدلاً من الأدوات التشغيلية المتفرقة",
+          "إجراءات قابلة لإعادة الاستخدام لتنفيذ أكثر اتساقاً",
+          "رؤية مباشرة للفرق وصنّاع القرار",
+          "أساس مرن للشركات والمؤسسات والمنظمات",
+        ],
+        impactSummary: "يحوّل KayanOS المعرفة التشغيلية المتفرقة إلى نظام واضح وقابل للتكرار، فيمنح الفرق طريقة أفضل لتنسيق العمل والإدارة رؤية أكثر موثوقية للتقدم.",
+        metaTitle: "دراسة مشروع نظام العمل KayanOS",
+        metaDescription: "استكشف KayanOS، المنصة الموحدة للإجراءات والمشاريع والمهام والتقارير والتعاون والعمليات المدعومة بالذكاء الاصطناعي.",
+      },
+      tr: {
+        title: "KayanOS — işi tek yerden yönetin",
+        subtitle: "Operasyon ve proje yönetim platformu",
+        summary:
+          "Kurumsal hedefleri net prosedürlere, koordineli projelere, görünür ilerlemeye ve düzenli günlük çalışmaya dönüştüren birleşik çalışma alanı.",
+        context:
+          "Büyüyen kuruluşlar çoğu zaman kopuk görev araçları, belgeler, tablolar, e-posta ve gayriresmî süreçlerle çalışır. Ekiplerin yeni bir katı sistem değil, anlaşılır bir yapıya ihtiyacı vardır.",
+        challenges:
+          "Prosedürleri, projeleri, insanları, raporlamayı ve iş birliğini tek anlaşılır üründe birleştirirken karmaşık operasyonları her rol için erişilebilir tutmak.",
+        solution:
+          "KayanOS; prosedürleri standartlaştırmak, görev ve bütçeleri yönetmek, ilerlemeyi görsel olarak izlemek, iş birliği yapmak ve veriye dayalı karar almak için ortak bir işletim katmanı sunar.",
+        services: ["Ürün stratejisi", "UX ve arayüz tasarımı", "Platform mühendisliği", "İş akışı mimarisi", "Kalite güvencesi"],
+        keyElements: [
+          "Prosedür ve iş akışı oluşturucu",
+          "Proje, görev ve bütçe yönetimi",
+          "Panolar ve operasyonel raporlama",
+          "Ekip iş birliği ve belge akışları",
+          "Yapay zekâ destekli rehberlik ve öneriler",
+        ],
+        results: [
+          "Dağınık operasyon araçları yerine tek net çalışma alanı",
+          "Daha tutarlı uygulama için yeniden kullanılabilir prosedürler",
+          "Ekipler ve karar vericiler için canlı görünürlük",
+          "Girişimler, kurumlar ve STK'lar için esnek temel",
+        ],
+        impactSummary: "KayanOS, dağınık operasyon bilgisini görünür ve tekrarlanabilir bir sisteme dönüştürerek ekiplere koordinasyon, yöneticilere ise ilerleme konusunda daha güvenilir bir görünüm sağlar.",
+        metaTitle: "KayanOS iş işletim sistemi vaka çalışması",
+        metaDescription: "Prosedürler, projeler, görevler, raporlama, iş birliği ve yapay zekâ destekli operasyonlar için KayanOS platformunu keşfedin.",
+      },
+    },
+  },
+  {
     projectNumber: "RC-001",
     name: "Government Case Management",
     slug: "government-case-management",
+    clientName: "Public service organization",
+    completionYear: 2025,
+    accentColor: "#264f73",
     technologies: ["React", "Node.js", "MongoDB", "Docker"],
     translations: {
       en: {
@@ -177,33 +280,51 @@ const projects = [
         subtitle: "Public sector",
         summary:
           "A secure workflow and approvals platform replacing email, spreadsheets, and paper-based tracking.",
+        context: "A public-service team needed one reliable view of cases moving across departments, reviewers, and approval levels.",
+        challenges: "Fragmented records, manual follow-up, unclear ownership, and limited auditability made service delivery slower and harder to manage.",
+        solution: "We designed a role-based case workspace with structured intake, approval routes, deadlines, searchable records, and live management views.",
+        services: ["Service design", "Workflow architecture", "Full-stack engineering", "Secure deployment"],
+        keyElements: ["Role-based access", "Configurable approval workflows", "Searchable audit trail", "Operational dashboards"],
         results: [
           "60% less follow-up time",
           "Real-time visibility into blocked cases",
           "A complete searchable audit trail",
         ],
+        impactSummary: "A single case workspace replaced fragmented follow-up and gave every responsible team a shared, auditable view of service delivery.",
       },
       ar: {
         title: "نظام مركزي لمتابعة المعاملات",
         subtitle: "القطاع العام",
         summary:
           "منصة آمنة لسير العمل والموافقات تستبدل البريد والجداول والمتابعة الورقية.",
+        context: "احتاج فريق خدمات عامة إلى رؤية موثوقة وموحدة للمعاملات أثناء انتقالها بين الأقسام والمراجعين ومستويات الموافقة.",
+        challenges: "أدت السجلات المتفرقة والمتابعة اليدوية وعدم وضوح المسؤولية وضعف التدقيق إلى إبطاء تقديم الخدمة.",
+        solution: "صممنا مساحة معاملات قائمة على الصلاحيات مع إدخال منظم ومسارات موافقة ومهل وسجلات قابلة للبحث ولوحات متابعة مباشرة.",
+        services: ["تصميم الخدمة", "هندسة مسارات العمل", "الهندسة البرمجية المتكاملة", "النشر الآمن"],
+        keyElements: ["وصول قائم على الأدوار", "مسارات موافقة قابلة للتهيئة", "سجل تدقيق قابل للبحث", "لوحات تشغيلية"],
         results: [
           "خفض وقت المتابعة بنسبة ٦٠٪",
           "رؤية فورية للمعاملات المتعثرة",
           "سجل تدقيق كامل وقابل للبحث",
         ],
+        impactSummary: "استبدلت مساحة المعاملات الموحدة المتابعة المتفرقة ومنحت جميع الفرق المسؤولة رؤية مشتركة وقابلة للتدقيق لتقديم الخدمة.",
       },
       tr: {
         title: "Merkezi vaka takibi",
         subtitle: "Kamu sektörü",
         summary:
           "E-posta, tablolar ve kağıt takibinin yerini alan güvenli iş akışı platformu.",
+        context: "Bir kamu hizmeti ekibinin departmanlar, inceleyenler ve onay seviyeleri arasında ilerleyen vakalar için tek güvenilir görünüme ihtiyacı vardı.",
+        challenges: "Dağınık kayıtlar, manuel takip, belirsiz sahiplik ve sınırlı denetlenebilirlik hizmet sunumunu yavaşlatıyordu.",
+        solution: "Yapılandırılmış kayıt, onay rotaları, son tarihler, aranabilir geçmiş ve canlı yönetim görünümleri olan rol tabanlı bir çalışma alanı tasarladık.",
+        services: ["Hizmet tasarımı", "İş akışı mimarisi", "Full-stack mühendislik", "Güvenli dağıtım"],
+        keyElements: ["Rol tabanlı erişim", "Yapılandırılabilir onay akışları", "Aranabilir denetim izi", "Operasyon panoları"],
         results: [
           "Takip süresinde %60 azalma",
           "Engellenen vakalarda anlık görünürlük",
           "Aranabilir denetim geçmişi",
         ],
+        impactSummary: "Tek bir vaka çalışma alanı dağınık takibin yerini aldı ve tüm sorumlu ekiplere hizmet sunumunun ortak, denetlenebilir görünümünü sağladı.",
       },
     },
   },
@@ -211,6 +332,9 @@ const projects = [
     projectNumber: "RC-002",
     name: "NGO Program Platform",
     slug: "ngo-program-platform",
+    clientName: "International NGO",
+    completionYear: 2025,
+    accentColor: "#9b5b35",
     technologies: ["React", "Express", "MongoDB", "Analytics"],
     translations: {
       en: {
@@ -218,33 +342,51 @@ const projects = [
         subtitle: "International NGO",
         summary:
           "One consistent platform for programs, partners, beneficiaries, and donor-ready reporting.",
+        context: "Regional program teams needed to coordinate delivery partners and beneficiary services while maintaining dependable donor reporting.",
+        challenges: "Different offices used different definitions and files, creating duplicate records, delayed consolidation, and low confidence in reports.",
+        solution: "We created a shared program data model, guided workflows, validation rules, and reporting views tailored to field teams and leadership.",
+        services: ["Program discovery", "Data modeling", "Platform engineering", "Reporting design"],
+        keyElements: ["Beneficiary records", "Partner workflows", "Program indicators", "Donor-ready exports"],
         results: [
           "Unified regional data",
           "Faster donor reporting",
           "Consistent beneficiary records",
         ],
+        impactSummary: "Regional teams moved from incompatible files to one program record, improving reporting readiness and confidence in beneficiary data.",
       },
       ar: {
         title: "إدارة البرامج والمستفيدين",
         subtitle: "منظمة دولية",
         summary:
           "منصة موحدة للبرامج والشركاء والمستفيدين والتقارير الجاهزة للمانحين.",
+        context: "احتاجت فرق البرامج الإقليمية إلى تنسيق الشركاء وخدمات المستفيدين مع الحفاظ على تقارير موثوقة للمانحين.",
+        challenges: "استخدمت المكاتب تعريفات وملفات مختلفة، ما أدى إلى سجلات مكررة وتأخر التجميع وضعف الثقة بالتقارير.",
+        solution: "أنشأنا نموذج بيانات مشتركاً للبرامج ومسارات عمل موجهة وقواعد تحقق وتقارير تناسب الفرق الميدانية والإدارة.",
+        services: ["اكتشاف البرامج", "نمذجة البيانات", "هندسة المنصة", "تصميم التقارير"],
+        keyElements: ["سجلات المستفيدين", "مسارات عمل الشركاء", "مؤشرات البرامج", "تصدير جاهز للمانحين"],
         results: [
           "بيانات موحدة بين المناطق",
           "تقارير أسرع للمانحين",
           "سجلات مستفيدين متسقة",
         ],
+        impactSummary: "انتقلت الفرق الإقليمية من ملفات غير متوافقة إلى سجل برامج موحد، ما حسّن جاهزية التقارير والثقة ببيانات المستفيدين.",
       },
       tr: {
         title: "Program ve yararlanıcı yönetimi",
         subtitle: "Uluslararası STK",
         summary:
           "Programlar, ortaklar, yararlanıcılar ve bağışçı raporları için tek platform.",
+        context: "Bölgesel program ekiplerinin ortakları ve yararlanıcı hizmetlerini koordine ederken güvenilir bağışçı raporlamasını sürdürmesi gerekiyordu.",
+        challenges: "Farklı ofislerin farklı tanım ve dosyaları yinelenen kayıtlara, gecikmeli birleştirmeye ve raporlara düşük güvene yol açıyordu.",
+        solution: "Saha ekipleri ve yöneticiler için ortak program veri modeli, yönlendirilmiş akışlar, doğrulama kuralları ve raporlama görünümleri oluşturduk.",
+        services: ["Program keşfi", "Veri modelleme", "Platform mühendisliği", "Raporlama tasarımı"],
+        keyElements: ["Yararlanıcı kayıtları", "Ortak iş akışları", "Program göstergeleri", "Bağışçıya hazır dışa aktarımlar"],
         results: [
           "Birleşik bölgesel veri",
           "Daha hızlı raporlama",
           "Tutarlı yararlanıcı kayıtları",
         ],
+        impactSummary: "Bölgesel ekipler uyumsuz dosyalardan tek program kaydına geçerek raporlama hazırlığını ve yararlanıcı verisine güveni geliştirdi.",
       },
     },
   },
@@ -252,6 +394,9 @@ const projects = [
     projectNumber: "RC-003",
     name: "Operations Intelligence",
     slug: "operations-intelligence",
+    clientName: "Operations leadership team",
+    completionYear: 2024,
+    accentColor: "#4d477d",
     technologies: ["TypeScript", "React", "PostgreSQL", "BI"],
     translations: {
       en: {
@@ -259,33 +404,51 @@ const projects = [
         subtitle: "Private sector",
         summary:
           "Live operational dashboards and automated reporting built on a reliable source of truth.",
+        context: "Leadership needed to understand daily performance across teams without waiting for manually assembled weekly reports.",
+        challenges: "Metrics came from disconnected sources, definitions varied, and analysts spent too much time reconciling data instead of explaining it.",
+        solution: "We unified core operational data, documented metric ownership, automated recurring reports, and designed role-specific decision dashboards.",
+        services: ["Analytics strategy", "Data integration", "Dashboard design", "Reporting automation"],
+        keyElements: ["Shared metric definitions", "Automated data flows", "Role-based dashboards", "Scheduled reporting"],
         results: [
           "Faster executive decisions",
           "Automated recurring reports",
           "Clear ownership of every metric",
         ],
+        impactSummary: "A governed reporting layer gave leaders faster answers while reducing the recurring manual work required from analysts.",
       },
       ar: {
         title: "منصة ذكاء العمليات",
         subtitle: "القطاع الخاص",
         summary:
           "لوحات تشغيل مباشرة وتقارير مؤتمتة مبنية على مصدر موثوق للبيانات.",
+        context: "احتاجت الإدارة إلى فهم الأداء اليومي بين الفرق دون انتظار تقارير أسبوعية مجمعة يدوياً.",
+        challenges: "جاءت المؤشرات من مصادر منفصلة واختلفت تعريفاتها، وقضى المحللون وقتاً طويلاً في مطابقة البيانات بدلاً من تفسيرها.",
+        solution: "وحّدنا البيانات التشغيلية الأساسية ووثقنا ملكية المؤشرات وأتمتنا التقارير الدورية وصممنا لوحات قرار لكل دور.",
+        services: ["استراتيجية التحليلات", "تكامل البيانات", "تصميم اللوحات", "أتمتة التقارير"],
+        keyElements: ["تعريفات مشتركة للمؤشرات", "تدفقات بيانات مؤتمتة", "لوحات حسب الدور", "تقارير مجدولة"],
         results: [
           "قرارات إدارية أسرع",
           "تقارير دورية مؤتمتة",
           "ملكية واضحة لكل مؤشر",
         ],
+        impactSummary: "وفرت طبقة التقارير المحكومة إجابات أسرع للإدارة وخفّضت العمل اليدوي الدوري المطلوب من المحللين.",
       },
       tr: {
         title: "Operasyon zekâsı platformu",
         subtitle: "Özel sektör",
         summary:
           "Güvenilir tek veri kaynağı üzerinde canlı panolar ve otomatik raporlama.",
+        context: "Yönetimin, elle hazırlanan haftalık raporları beklemeden ekipler arasındaki günlük performansı anlaması gerekiyordu.",
+        challenges: "Metrikler kopuk kaynaklardan geliyor, tanımlar değişiyor ve analistler veriyi açıklamak yerine uzlaştırmakla zaman kaybediyordu.",
+        solution: "Temel operasyon verilerini birleştirdik, metrik sahipliğini belgeledik, dönemsel raporları otomatikleştirdik ve role özel karar panoları tasarladık.",
+        services: ["Analitik stratejisi", "Veri entegrasyonu", "Pano tasarımı", "Raporlama otomasyonu"],
+        keyElements: ["Ortak metrik tanımları", "Otomatik veri akışları", "Rol tabanlı panolar", "Planlı raporlama"],
         results: [
           "Daha hızlı yönetim kararları",
           "Otomatik dönemsel raporlar",
           "Her metrik için net sahiplik",
         ],
+        impactSummary: "Yönetilen raporlama katmanı liderlere daha hızlı yanıtlar sağlarken analistlerin tekrarlanan manuel işini azalttı.",
       },
     },
   },

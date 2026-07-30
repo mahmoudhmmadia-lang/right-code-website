@@ -1,19 +1,19 @@
 import LangHandler from "@/components/LangHandler"
+import LazyImage from "@/components/LazyImage"
 import { motion } from "framer-motion"
 import { ArrowUpRight, Braces } from "lucide-react"
 import { Link } from "react-router-dom"
 import { mediaUrl } from "@/lib/media"
 import type { BlogPost } from "../useBlogs"
 
-export function BlogVisual({ post }: { post: BlogPost }) {
+export function BlogVisual({ post, priority = false }: { post: BlogPost; priority?: boolean }) {
   return (
     <div className="relative h-full min-h-64 overflow-hidden bg-[radial-gradient(circle_at_72%_24%,rgba(66,209,213,.25),transparent_28%),linear-gradient(145deg,#092728,#061819)]">
       {post.coverImageUrl ? (
-        <img
+        <LazyImage
           src={mediaUrl(post.coverImageUrl)}
           alt=""
-          loading="lazy"
-          decoding="async"
+          priority={priority}
           className="absolute inset-0 h-full w-full object-cover"
         />
       ) : (

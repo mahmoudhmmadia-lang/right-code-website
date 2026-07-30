@@ -21,6 +21,7 @@ import { useEffect, useMemo, useRef, type ElementType } from "react"
 import { useLanding } from "./useLanding"
 import type { HomeHeroContent, HomeMedia } from "../home/types"
 import { mediaUrl } from "@/lib/media"
+import LazyImage from "@/components/LazyImage"
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -332,9 +333,12 @@ function InteractiveScene({
         animate={reduceMotion ? undefined : { rotate: [0, 4, 0, -4, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       >
-        <img
-          src={imageUrl}
+        <LazyImage
+          src={imageUrl || mediaUrl("/assets/home/logo.png")}
           alt="Right Code"
+          width={80}
+          height={80}
+          priority
           className="w-16 drop-shadow-[0_12px_24px_rgba(0,0,0,0.2)] sm:w-20"
         />
       </motion.div>
@@ -500,6 +504,9 @@ function Landing({ content, media }: { content?: HomeHeroContent; media?: HomeMe
             src={mediaUrl(media.backgroundImageUrl)}
             alt=""
             aria-hidden="true"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
             className="pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover opacity-[0.08] grayscale dark:opacity-[0.06]"
             initial={{ scale: 1.04 }}
             animate={reduceMotion ? undefined : { scale: 1.1 }}

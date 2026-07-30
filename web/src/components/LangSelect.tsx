@@ -5,6 +5,69 @@ import { AnimatePresence, motion } from "framer-motion"
 import { Check, ChevronDown, Languages, Sparkles } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
+export function LanguageOptions({
+  onSelect,
+}: {
+  onSelect?: () => void
+}) {
+  useSignals()
+
+  const selectLanguage = (nextLanguage: Lang) => {
+    changeLanguage(nextLanguage)
+    onSelect?.()
+  }
+
+  return (
+    <div className="grid gap-1.5">
+      {LANGS.map((language) => {
+        const selected = language.value === lang.value
+
+        return (
+          <button
+            key={language.value}
+            type="button"
+            role="option"
+            aria-selected={selected}
+            onClick={() => selectLanguage(language.value as Lang)}
+            className={`group/item flex min-w-0 items-center gap-3 rounded-2xl border px-3 py-3 text-left transition-all ${
+              selected
+                ? "border-main/25 bg-main/10 text-main shadow-sm"
+                : "border-transparent text-alt/65 hover:border-main/15 hover:bg-main/5 hover:text-alt dark:text-foreground/68 dark:hover:text-foreground"
+            }`}
+          >
+            <span
+              className={`grid size-10 shrink-0 place-items-center rounded-2xl text-xs font-black ${
+                selected
+                  ? "bg-main text-white"
+                  : "bg-alt/5 text-alt/55 group-hover/item:bg-main/10 group-hover/item:text-main dark:bg-foreground/8 dark:text-foreground/55"
+              }`}
+            >
+              {language.code}
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block truncate text-sm font-black">
+                {language.nativeLabel}
+              </span>
+              <span className="block truncate text-xs text-alt/42 dark:text-foreground/42">
+                {language.label}
+              </span>
+            </span>
+            <span
+              className={`grid size-7 shrink-0 place-items-center rounded-full transition ${
+                selected
+                  ? "bg-main text-white"
+                  : "bg-alt/5 text-transparent dark:bg-foreground/8"
+              }`}
+            >
+              <Check className="size-3.5" />
+            </span>
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
 function LangSelect() {
   useSignals()
   const [open, setOpen] = useState(false)
@@ -33,11 +96,6 @@ function LangSelect() {
       document.removeEventListener("keydown", onKeyDown)
     }
   }, [open])
-
-  const selectLanguage = (nextLanguage: Lang) => {
-    changeLanguage(nextLanguage)
-    setOpen(false)
-  }
 
   return (
     <div ref={rootRef} className="relative">
@@ -87,53 +145,7 @@ function LangSelect() {
               </span>
               <Sparkles className="size-3.5 text-[#ffb84d]" />
             </div>
-            <div className="grid gap-1">
-              {LANGS.map((language) => {
-                const selected = language.value === lang.value
-
-                return (
-                  <button
-                    key={language.value}
-                    type="button"
-                    role="option"
-                    aria-selected={selected}
-                    onClick={() => selectLanguage(language.value as Lang)}
-                    className={`group/item flex items-center gap-3 rounded-2xl border px-3 py-2.5 text-left transition-all ${
-                      selected
-                        ? "border-main/25 bg-main/10 text-main shadow-sm"
-                        : "border-transparent text-alt/65 hover:border-main/15 hover:bg-main/5 hover:text-alt"
-                    }`}
-                  >
-                    <span
-                      className={`grid size-9 shrink-0 place-items-center rounded-2xl text-xs font-black ${
-                        selected
-                          ? "bg-main text-white"
-                          : "bg-alt/5 text-alt/55 group-hover/item:bg-main/10 group-hover/item:text-main"
-                      }`}
-                    >
-                      {language.code}
-                    </span>
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-sm font-black">
-                        {language.nativeLabel}
-                      </span>
-                      <span className="block text-xs text-alt/42">
-                        {language.label}
-                      </span>
-                    </span>
-                    <span
-                      className={`grid size-6 place-items-center rounded-full transition ${
-                        selected
-                          ? "bg-main text-white"
-                          : "bg-alt/5 text-transparent"
-                      }`}
-                    >
-                      <Check className="size-3.5" />
-                    </span>
-                  </button>
-                )
-              })}
-            </div>
+            <LanguageOptions onSelect={() => setOpen(false)} />
           </motion.div>
         ) : null}
       </AnimatePresence>

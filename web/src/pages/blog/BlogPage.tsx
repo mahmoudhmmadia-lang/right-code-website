@@ -12,7 +12,6 @@ import { Link } from "react-router-dom"
 import { BlogCard, BlogVisual } from "./components/BlogCard"
 import { useBlogs } from "./useBlogs"
 import { useRoutePage } from "@/pages/site/useRoutePage"
-import { RouteCopyProvider } from "@/context/route-copy"
 
 export default function BlogPage() {
   const query = useBlogs()
@@ -25,7 +24,6 @@ export default function BlogPage() {
     : posts
 
   return (
-    <RouteCopyProvider copy={section?.body?.copy}>
     <AnimatedRoutePage className="pt-16" chapters={route.chapters} variant="blog">
       <RouteChapter id={section?.anchor ?? section?.key ?? "blog-index"} index={0}>
         <Container className="app-section py-20 sm:py-24">
@@ -86,6 +84,5 @@ export default function BlogPage() {
         </Container>
       </RouteChapter>
     </AnimatedRoutePage>
-    </RouteCopyProvider>
   )
 }

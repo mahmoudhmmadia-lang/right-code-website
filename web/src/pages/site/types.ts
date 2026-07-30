@@ -7,7 +7,6 @@ export type RouteSectionBody = {
   subheading?: string
   chapterLabel?: string
   errorMessage?: string
-  copy?: Record<string, string>
   aboutWhy?: {
     quoteTitle: string
     quoteText: string
@@ -52,6 +51,23 @@ export type RouteSectionBody = {
   }
   projectsShowcase?: {
     emptyMessage: string
+    detailsLabel: string
+    visitLabel: string
+    featuredLabel: string
+    backLabel: string
+    clientLabel: string
+    yearLabel: string
+    servicesLabel: string
+    technologiesLabel: string
+    nextProjectLabel: string
+    allProjectsLabel: string
+    notFoundTitle: string
+    notFoundMessage: string
+    contextLabel: string
+    challengeLabel: string
+    solutionLabel: string
+    capabilitiesLabel: string
+    impactLabel: string
     statusLabels: Array<{ value: string; label: string }>
   }
   caseStudies?: {

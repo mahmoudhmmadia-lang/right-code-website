@@ -12,7 +12,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { FieldControl, type DraftValue } from "./FieldControl";
 import { MultilingualFields, type TranslationDrafts } from "./MultilingualFields";
 import { RESOURCE_CONFIGS, type ResourceName } from "./config";
-import { fieldLabel, RESOURCE_COPY } from "./resource-copy";
+import { fieldGroupLabel, fieldLabel, RESOURCE_COPY } from "./resource-copy";
+import { fieldGroups } from "./field-groups";
 import { CONTENT_LOCALES, type ApiEnvelope, type FieldConfig, type ResourceConfig, type ResourceRecord } from "./types";
 
 type Draft = Record<string, DraftValue>;
@@ -106,7 +107,7 @@ function ResourceEditorForm({ resource, config, seed, record, onDone }: { resour
     <Button asChild variant="ghost" className="w-fit text-main"><Link to={config.adminPath}><ArrowLeft className="size-4 rtl:rotate-180" />{copy.cancel}</Link></Button>
     <form onSubmit={submit} className="mx-auto grid w-full max-w-6xl gap-6">
       <header className="flex items-center gap-4 rounded-3xl border bg-gradient-to-r from-main/[.08] to-background p-6"><span className="grid size-12 place-items-center rounded-2xl bg-main text-white"><Icon className="size-5" /></span><div><p className="text-xs font-bold uppercase tracking-[.18em] text-main">{record ? copy.updateRecord : copy.newRecord}</p><h2 className="text-2xl font-black text-alt">{copy.resources[resource].title}</h2></div></header>
-      <section className="rounded-2xl border bg-background p-5 shadow-sm sm:p-6"><div className="mb-5 border-b pb-4"><h3 className="font-bold text-alt">{copy.general}</h3><p className="mt-1 text-xs text-muted-foreground">{copy.generalHint}</p></div><div className="grid gap-5 md:grid-cols-2">{config.fields.map((field) => <FieldControl key={field.name} field={field} value={base[field.name]} adminLocale={lang.value} copy={copy} onChange={(value) => setBase((current) => ({ ...current, [field.name]: value }))} />)}</div></section>
+      <section className="rounded-2xl border bg-background p-5 shadow-sm sm:p-6"><div className="mb-5 border-b pb-4"><h3 className="font-bold text-alt">{copy.general}</h3><p className="mt-1 text-xs text-muted-foreground">{copy.generalHint}</p></div><div className="grid gap-7">{fieldGroups(config.fields).map((group) => <div key={group.key}>{group.key !== "default" ? <h4 className="mb-4 text-xs font-black tracking-[.12em] text-main uppercase">{fieldGroupLabel(lang.value, group.key)}</h4> : null}<div className="grid gap-5 md:grid-cols-2">{group.items.map((field) => <FieldControl key={field.name} field={field} value={base[field.name]} adminLocale={lang.value} copy={copy} onChange={(value) => setBase((current) => ({ ...current, [field.name]: value }))} />)}</div></div>)}</div></section>
       {config.translationFields?.length ? <MultilingualFields fields={config.translationFields} value={translations} copy={copy} adminLocale={lang.value} onChange={(locale, field, value) => setTranslations((current) => ({ ...current, [locale]: { ...current[locale], [field]: value } }))} /> : null}
       {error ? <p className="rounded-xl bg-destructive/10 p-4 text-sm font-medium text-destructive">{error}</p> : null}
       <footer className="sticky bottom-3 flex justify-end gap-3 rounded-2xl border bg-background/90 p-4 shadow-xl backdrop-blur"><Button asChild type="button" variant="outline"><Link to={config.adminPath}>{copy.cancel}</Link></Button><Button type="submit" disabled={save.isPending} className="bg-main text-white"><Save className="size-4" />{save.isPending ? copy.saving : record ? copy.saveChanges : copy.createRecord}</Button></footer>

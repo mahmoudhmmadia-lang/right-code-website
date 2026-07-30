@@ -13,6 +13,7 @@ const en = {
     inquiries: { title: "Inquiries", description: "Review contact requests and their workflow status." },
   },
   search: "Search",
+  allStatuses: "All statuses",
   add: "Add record",
   actions: "Actions",
   edit: "Edit",
@@ -62,6 +63,7 @@ export const RESOURCE_COPY: Record<Lang, ResourceCopyText> = {
       inquiries: { title: "الطلبات", description: "مراجعة طلبات التواصل وحالة متابعتها." },
     },
     search: "بحث",
+    allStatuses: "جميع الحالات",
     add: "إضافة سجل",
     actions: "الإجراءات",
     edit: "تعديل",
@@ -103,6 +105,7 @@ export const RESOURCE_COPY: Record<Lang, ResourceCopyText> = {
       inquiries: { title: "Talepler", description: "İletişim taleplerini ve iş akışı durumlarını inceleyin." },
     },
     search: "Ara",
+    allStatuses: "Tüm durumlar",
     add: "Kayıt ekle",
     actions: "İşlemler",
     edit: "Düzenle",
@@ -138,14 +141,14 @@ const FIELD_LABELS: Record<Lang, Record<string, string>> = {
   en: {},
   ar: {
     slug: "المعرّف في الرابط", kind: "نوع الصفحة", status: "الحالة", template: "القالب", sortOrder: "ترتيب العرض", isHomePage: "الصفحة الرئيسية", icon: "الأيقونة", isFeatured: "مميز", key: "المفتاح", isActive: "نشط", jobTitleKey: "المسمى الوظيفي", imageUrl: "صورة العضو", coverImageUrl: "صورة الغلاف", linkedInUrl: "رابط لينكدإن", bio: "السيرة المختصرة", authorName: "اسم الكاتب", readMinutes: "مدة القراءة بالدقائق",
-    projectNumber: "رقم المشروع", name: "الاسم الداخلي", type: "النوع", visibility: "الظهور", progressPercent: "نسبة التقدم", startDate: "تاريخ البدء", targetEndDate: "تاريخ الانتهاء المتوقع", technologies: "التقنيات", publishedAt: "تاريخ النشر", tags: "الوسوم", level: "المستوى", durationHours: "المدة بالساعات",
-    title: "العنوان", navigationLabel: "عنوان التنقل", excerpt: "المقتطف", metaTitle: "عنوان محركات البحث", metaDescription: "وصف محركات البحث", subtitle: "العنوان الفرعي", description: "الوصف", audience: "الجمهور", approach: "النهج", outcome: "النتيجة", summary: "الملخص", context: "السياق", challenges: "التحديات", solution: "الحل", keyElements: "العناصر الأساسية", results: "النتائج", content: "المحتوى", prerequisites: "المتطلبات السابقة", outcomes: "المخرجات",
+    projectNumber: "رقم المشروع", name: "الاسم الداخلي", type: "النوع", visibility: "الظهور", progressPercent: "نسبة التقدم", startDate: "تاريخ البدء", targetEndDate: "تاريخ الانتهاء المتوقع", clientName: "اسم العميل أو المنتج", completionYear: "سنة الإنجاز", projectUrl: "رابط المشروع المباشر", galleryImages: "روابط صور المعرض", accentColor: "لون المشروع", technologies: "التقنيات", publishedAt: "تاريخ النشر", tags: "الوسوم", level: "المستوى", durationHours: "المدة بالساعات",
+    title: "العنوان", navigationLabel: "عنوان التنقل", excerpt: "المقتطف", metaTitle: "عنوان محركات البحث", metaDescription: "وصف محركات البحث", subtitle: "العنوان الفرعي", description: "الوصف", audience: "الجمهور", approach: "النهج", outcome: "النتيجة", summary: "الملخص", context: "السياق", challenges: "التحديات", solution: "الحل", services: "الخدمات المقدمة", keyElements: "العناصر الأساسية", results: "النتائج", impactSummary: "ملخص الأثر", testimonialQuote: "اقتباس العميل", testimonialAuthor: "صاحب الاقتباس", content: "المحتوى", prerequisites: "المتطلبات السابقة", outcomes: "المخرجات",
     fullName: "الاسم الكامل", email: "البريد الإلكتروني", phone: "الهاتف", organization: "المؤسسة", message: "الرسالة", internalNotes: "الملاحظات الداخلية", createdAt: "تاريخ الاستلام",
   },
   tr: {
     slug: "URL kimliği", kind: "Sayfa türü", status: "Durum", template: "Şablon", sortOrder: "Sıralama", isHomePage: "Ana sayfa", icon: "Simge", isFeatured: "Öne çıkan", key: "Anahtar", isActive: "Aktif", jobTitleKey: "İş unvanı", imageUrl: "Üye görseli", coverImageUrl: "Kapak görseli", linkedInUrl: "LinkedIn URL", bio: "Biyografi", authorName: "Yazar adı", readMinutes: "Okuma süresi (dakika)",
-    projectNumber: "Proje numarası", name: "Dahili ad", type: "Tür", visibility: "Görünürlük", progressPercent: "İlerleme yüzdesi", startDate: "Başlangıç tarihi", targetEndDate: "Hedef bitiş tarihi", technologies: "Teknolojiler", publishedAt: "Yayın tarihi", tags: "Etiketler", level: "Seviye", durationHours: "Süre (saat)",
-    title: "Başlık", navigationLabel: "Gezinme etiketi", excerpt: "Özet", metaTitle: "SEO başlığı", metaDescription: "SEO açıklaması", subtitle: "Alt başlık", description: "Açıklama", audience: "Hedef kitle", approach: "Yaklaşım", outcome: "Sonuç", summary: "Özet", context: "Bağlam", challenges: "Zorluklar", solution: "Çözüm", keyElements: "Temel öğeler", results: "Sonuçlar", content: "İçerik", prerequisites: "Ön koşullar", outcomes: "Kazanımlar",
+    projectNumber: "Proje numarası", name: "Dahili ad", type: "Tür", visibility: "Görünürlük", progressPercent: "İlerleme yüzdesi", startDate: "Başlangıç tarihi", targetEndDate: "Hedef bitiş tarihi", clientName: "Müşteri veya ürün adı", completionYear: "Tamamlanma yılı", projectUrl: "Canlı proje URL'si", galleryImages: "Galeri görsel URL'leri", accentColor: "Proje rengi", technologies: "Teknolojiler", publishedAt: "Yayın tarihi", tags: "Etiketler", level: "Seviye", durationHours: "Süre (saat)",
+    title: "Başlık", navigationLabel: "Gezinme etiketi", excerpt: "Özet", metaTitle: "SEO başlığı", metaDescription: "SEO açıklaması", subtitle: "Alt başlık", description: "Açıklama", audience: "Hedef kitle", approach: "Yaklaşım", outcome: "Sonuç", summary: "Özet", context: "Bağlam", challenges: "Zorluklar", solution: "Çözüm", services: "Sunulan hizmetler", keyElements: "Temel öğeler", results: "Sonuçlar", impactSummary: "Etki özeti", testimonialQuote: "Müşteri alıntısı", testimonialAuthor: "Alıntı sahibi", content: "İçerik", prerequisites: "Ön koşullar", outcomes: "Kazanımlar",
     fullName: "Tam ad", email: "E-posta", phone: "Telefon", organization: "Kuruluş", message: "Mesaj", internalNotes: "Dahili notlar", createdAt: "Alındı",
   },
 };
@@ -158,3 +161,11 @@ const OPTION_LABELS: Record<Lang, Record<string, string>> = {
 
 export function fieldLabel(locale: Lang, name: string, fallback: string) { return FIELD_LABELS[locale][name] ?? fallback; }
 export function optionLabel(locale: Lang, value: string) { return OPTION_LABELS[locale][value] ?? value.replaceAll("_", " "); }
+
+const GROUP_LABELS: Record<Lang, Record<string, string>> = {
+  en: { identity: "Identity & publishing", delivery: "Delivery information", presentation: "Public presentation", overview: "Project overview", story: "Case-study story", outcomes: "Delivery & impact", seo: "Search visibility" },
+  ar: { identity: "الهوية والنشر", delivery: "معلومات التنفيذ", presentation: "العرض العام", overview: "نظرة عامة على المشروع", story: "قصة المشروع", outcomes: "التنفيذ والأثر", seo: "الظهور في البحث" },
+  tr: { identity: "Kimlik ve yayın", delivery: "Teslimat bilgileri", presentation: "Genel sunum", overview: "Proje özeti", story: "Proje hikâyesi", outcomes: "Teslimat ve etki", seo: "Arama görünürlüğü" },
+};
+
+export function fieldGroupLabel(locale: Lang, group: string) { return GROUP_LABELS[locale][group] ?? group; }

@@ -1,6 +1,7 @@
 import { useSiteContent } from "@/context/site-content"
 import { mediaUrl } from "@/lib/media"
 import { useSignals } from "@preact/signals-react/runtime"
+import LazyImage from "./LazyImage"
 
 export default function LanguageLoader() {
   useSignals()
@@ -10,11 +11,12 @@ export default function LanguageLoader() {
       <div className="text-center">
         <div className="relative mx-auto grid size-20 place-items-center rounded-3xl border border-main/20 bg-main/5">
           <span className="absolute inset-0 animate-ping rounded-3xl border border-main/20" />
-          <img
+          <LazyImage
             src={mediaUrl("/assets/home/logo.png")}
             alt=""
             width={52}
             height={52}
+            priority
             className="relative size-12 object-contain"
           />
         </div>

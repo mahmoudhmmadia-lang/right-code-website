@@ -12,6 +12,7 @@ export function contentResourceRoutes(config: ResourceConfig) {
 
   router.get("/", handlers.list);
   router.get("/admin", verifyToken, handlers.list);
+  if (config.slugLookup) router.get("/by-slug/:slug", handlers.getBySlug);
   router.post("/", verifyToken, multipartForm, handlers.create);
   router.get("/:id", handlers.get);
   router.patch("/:id", verifyToken, multipartForm, handlers.update);

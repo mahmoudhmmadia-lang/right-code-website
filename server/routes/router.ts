@@ -48,8 +48,9 @@ function apiRouter() {
       model: "project",
       required: ["projectNumber", "name", "translations"],
       searchFields: ["projectNumber", "name", "slug"],
-      publicWhere: { visibility: "PUBLIC" },
+      publicWhere: { visibility: "PUBLIC", status: { notIn: ["CANCELLED", "ARCHIVED"] } },
       orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }],
+      slugLookup: true,
     }),
   );
   api.use(

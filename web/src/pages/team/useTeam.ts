@@ -22,7 +22,7 @@ const emptyForm = {
   fullName: "",
   email: "",
   phone: "",
-  jobTitleId: "",
+  jobTitle: "",
   linkedInUrl: "",
   portfolioUrl: "",
   coverNote: "",
@@ -87,16 +87,28 @@ export function useTeam() {
     setCv(file)
   }
 
+  function updateJobTitle(event: ChangeEvent<HTMLInputElement>) {
+    setSubmitted(false)
+    setFormError("")
+    setForm((current) => ({ ...current, jobTitle: event.target.value }))
+  }
+
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    if (!cv || !form.jobTitleId) {
+    const enteredTitle = form.jobTitle.trim()
+    if (!cv || enteredTitle.length < 2) {
       setFormError("required")
       return
     }
     const payload = new FormData()
     Object.entries(form).forEach(
-      ([key, value]) => value && payload.append(key, value)
+      ([key, value]) => key !== "jobTitle" && value && payload.append(key, value)
     )
+    const selectedTitle = jobsQuery.data?.find(
+      (title) => title.title.localeCompare(enteredTitle, locale, { sensitivity: "base" }) === 0,
+    )
+    if (selectedTitle) payload.append("jobTitleId", selectedTitle.id)
+    else payload.append("customJobTitle", enteredTitle)
     payload.append("cv", cv)
     application.mutate(payload)
   }
@@ -111,6 +123,7 @@ export function useTeam() {
     formError,
     isSubmitting: application.isPending,
     updateField,
+    updateJobTitle,
     updateCv,
     submit,
   }

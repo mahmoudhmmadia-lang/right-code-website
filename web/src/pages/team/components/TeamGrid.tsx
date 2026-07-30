@@ -1,4 +1,5 @@
 import LangHandler from "@/components/LangHandler"
+import LazyImage from "@/components/LazyImage"
 import { Link as LinkIcon } from "lucide-react"
 import { mediaUrl } from "@/lib/media"
 import type { TeamMember } from "../useTeam"
@@ -21,13 +22,11 @@ export function TeamGrid({ members }: { members: TeamMember[] }) {
         >
           <div className="relative aspect-[4/4.5] overflow-hidden rounded-[1.25rem] bg-[linear-gradient(145deg,rgba(0,107,112,.18),rgba(255,184,77,.12))]">
             {member.imageUrl ? (
-              <img
+              <LazyImage
                 src={mediaUrl(member.imageUrl)}
                 alt={member.fullName}
                 width={640}
                 height={720}
-                loading="lazy"
-                decoding="async"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
             ) : (

@@ -7,7 +7,7 @@ function DashboardLayout() {
   return (
     <div className="min-h-screen w-full bg-[#f2f6f5] text-alt transition-colors dark:bg-[#081514] dark:text-foreground">
       <Sidebar />
-      <div className={cn("min-h-screen transition-[margin] duration-300", sidebarCollapsed.value ? "lg:ml-20 rtl:lg:mr-20 rtl:lg:ml-0" : "lg:ml-64 rtl:lg:mr-64 rtl:lg:ml-0")}>
+      <div className={cn("min-h-screen transition-[margin] duration-300", sidebarCollapsed.value ? "lg:ml-[84px] rtl:lg:mr-[84px] rtl:lg:ml-0" : "lg:ml-[272px] rtl:lg:mr-[272px] rtl:lg:ml-0")}>
         <AdminNavbar />
         <Outlet />
       </div>

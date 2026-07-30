@@ -7,6 +7,7 @@ const ResourcePage = lazy(() => import("@/features/resources/ResourcePage"));
 const ResourceEditorPage = lazy(() => import("@/features/resources/ResourceEditorPage"));
 const Analytics = lazy(() => import("@/pages/analytics/Analytics"));
 const Messages = lazy(() => import("@/pages/messages/Messages"));
+const JobApplications = lazy(() => import("@/pages/job-applications/JobApplications"));
 const Pages = lazy(() => import("@/pages/pages/Pages"));
 const PageEditor = lazy(() => import("@/pages/pages/PageEditor"));
 const ContentManager = lazy(() => import("@/pages/content/ContentManager"));
@@ -59,6 +60,7 @@ function PrivateRoutes() {
           }
         />
         <Route path="messages" element={<Deferred><Messages /></Deferred>} />
+        <Route path="job-requests" element={<Deferred><JobApplications /></Deferred>} />
         <Route path="job-titles" element={<Deferred><ResourcePage resource="jobTitles" /></Deferred>} />
         <Route path="job-titles/new" element={<Deferred><ResourceEditorPage resource="jobTitles" /></Deferred>} />
         <Route path="job-titles/:id/edit" element={<Deferred><ResourceEditorPage resource="jobTitles" /></Deferred>} />

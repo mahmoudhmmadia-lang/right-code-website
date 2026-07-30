@@ -2,6 +2,7 @@ import LangHandler from "@/components/LangHandler"
 import PageLayout from "@/components/PageLayout"
 import { Button } from "@/components/ui/button"
 import { useSiteContent } from "@/context/site-content"
+import { COMPANY_CONTACT } from "@/constants/company"
 import type { ContactContent, RouteSectionBody } from "@/pages/site/types"
 import type { translator } from "@/translator"
 import { useSignals } from "@preact/signals-react/runtime"
@@ -24,6 +25,7 @@ import {
 } from "lucide-react"
 import { useState } from "react"
 import { myAxios } from "@/api/myAxios"
+import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa6"
 
 type TranslationKey = keyof typeof translator.en
 
@@ -156,8 +158,8 @@ function ContactUs({ content }: { content?: RouteSectionBody }) {
   const methods = cms?.methods?.length
     ? cms.methods
     : [
-        { type: "email", label: text("contactEmailLabel"), value: "info@rightcode.io", href: "mailto:info@rightcode.io" },
-        { type: "phone", label: text("contactPhoneLabel"), value: "+963 100 476 997", href: "tel:+963100476997", note: text("contactPhoneNote") },
+        { type: "email", label: text("contactEmailLabel"), value: COMPANY_CONTACT.email, href: `mailto:${COMPANY_CONTACT.email}` },
+        { type: "phone", label: text("contactPhoneLabel"), value: COMPANY_CONTACT.phoneDisplay, href: COMPANY_CONTACT.phoneHref, note: text("contactPhoneNote") },
       ]
   const scenarios = buildLiveChatScenarios(cms, text)
 
@@ -444,9 +446,7 @@ function ContactUs({ content }: { content?: RouteSectionBody }) {
                 <h3 className="text-xl font-bold text-alt dark:text-foreground">
                   {cms?.officeTitle ?? <LangHandler content="contactOfficeTitle" />}
                 </h3>
-                <p className="mt-4 text-alt/70 dark:text-foreground/68">
-                  {cms?.officeAddress ?? <LangHandler content="contactOfficeAddress" />}
-                </p>
+                <a href={COMPANY_CONTACT.maps} target="_blank" rel="noreferrer" className="mt-4 block text-alt/70 transition hover:text-main dark:text-foreground/68 dark:hover:text-main">{cms?.officeAddress ?? <LangHandler content="contactOfficeAddress" />}</a>
                 <p className="mt-2 text-xs text-alt/40 dark:text-foreground/38">
                   {cms?.officeNote ?? <LangHandler content="contactOfficeNote" />}
                 </p>
@@ -466,8 +466,9 @@ function ContactUs({ content }: { content?: RouteSectionBody }) {
         {cms?.companyLinks?.length ? (
           <div className="flex flex-wrap justify-center gap-3">
             {cms.companyLinks.map((link) => (
-              <a key={`${link.label}-${link.url}`} href={link.url} target="_blank" rel="noreferrer" className="rounded-full border border-main/10 bg-card/60 px-4 py-2 text-xs font-bold text-main transition hover:border-main/30 hover:bg-main/10">
-                {link.label}
+              <a key={`${link.label}-${link.url}`} href={link.url} target="_blank" rel="noreferrer" aria-label={link.label} className="group inline-flex items-center gap-2 rounded-full border border-main/10 bg-card/60 px-4 py-2 text-xs font-bold text-main transition hover:-translate-y-0.5 hover:border-main/30 hover:bg-main hover:text-white">
+                {link.label.toLowerCase().includes("linkedin") ? <FaLinkedinIn className="size-4" /> : <FaWhatsapp className="size-4" />}
+                <span>{link.label}</span>
               </a>
             ))}
           </div>

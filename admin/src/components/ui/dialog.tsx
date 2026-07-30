@@ -15,7 +15,13 @@ function Dialog({
 function DialogTrigger({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
-  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
+  return (
+    <DialogPrimitive.Trigger
+      data-slot="dialog-trigger"
+      {...props}
+      dir={lang.value == "ar" ? "rtl" : "ltr"}
+    />
+  );
 }
 
 function DialogPortal({
@@ -27,7 +33,13 @@ function DialogPortal({
 function DialogClose({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Close>) {
-  return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
+  return (
+    <DialogPrimitive.Close
+      data-slot="dialog-close"
+      {...props}
+      dir={lang.value == "ar" ? "rtl" : "ltr"}
+    />
+  );
 }
 
 function DialogOverlay({
@@ -62,6 +74,7 @@ function DialogContent({
           className,
         )}
         {...props}
+        dir={lang.value == "ar" ? "rtl" : "ltr"}
       >
         {children}
         <DialogPrimitive.Close className="ring-offset-background focus:ring-ring absolute top-4 right-4 z-10 grid size-9 place-items-center rounded-full border bg-background/90 text-muted-foreground shadow-sm transition hover:bg-muted hover:text-foreground focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">

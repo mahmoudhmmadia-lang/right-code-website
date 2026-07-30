@@ -10,8 +10,6 @@ import { ArrowLeft } from "lucide-react"
 import { Link, useParams } from "react-router-dom"
 import { BlogVisual } from "./components/BlogCard"
 import { useBlog } from "./useBlogs"
-import { useRoutePage } from "@/pages/site/useRoutePage"
-import { RouteCopyProvider } from "@/context/route-copy"
 
 const chapters = [
   { id: "blog-article", label: "blogBadge" },
@@ -21,11 +19,8 @@ export default function BlogDetailPage() {
   const { slug } = useParams()
   const query = useBlog(slug)
   const post = query.data
-  const route = useRoutePage("blog")
-  const section = route.sections[0]
 
   return (
-    <RouteCopyProvider copy={section?.body?.copy}>
     <AnimatedRoutePage className="pt-16" chapters={chapters} variant="blog">
       <RouteChapter id={chapters[0].id} index={0}>
         <Container className="app-section py-16 sm:py-24">
@@ -68,7 +63,7 @@ export default function BlogDetailPage() {
               </header>
 
               <div className="mt-12 aspect-[16/8] overflow-hidden rounded-[2rem] border border-main/15">
-                <BlogVisual post={post} />
+                <BlogVisual post={post} priority />
               </div>
 
               <div className="mx-auto mt-14 max-w-3xl">
@@ -86,6 +81,5 @@ export default function BlogDetailPage() {
         </Container>
       </RouteChapter>
     </AnimatedRoutePage>
-    </RouteCopyProvider>
   )
 }

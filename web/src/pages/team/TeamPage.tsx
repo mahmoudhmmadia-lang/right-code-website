@@ -8,7 +8,6 @@ import { useRoutePage } from "@/pages/site/useRoutePage"
 import { CareerForm } from "./components/CareerForm"
 import { TeamButtonCarousel } from "./components/TeamButtonCarousel"
 import { useTeam } from "./useTeam"
-import { RouteCopyProvider } from "@/context/route-copy"
 
 export default function TeamPage() {
   const team = useTeam()
@@ -21,7 +20,6 @@ export default function TeamPage() {
     <AnimatedRoutePage className="pt-16" chapters={route.chapters} variant="team">
       {people ? (
       <RouteChapter id={people.anchor ?? people.key} index={route.sections.indexOf(people)}>
-        <RouteCopyProvider copy={people.body?.copy}>
         <PageLayout
           cmsOnly
           badgeText={people.body?.badge}
@@ -35,7 +33,6 @@ export default function TeamPage() {
             <TeamButtonCarousel members={team.members} content={people.body?.teamPeople} />
           )}
         </PageLayout>
-        </RouteCopyProvider>
       </RouteChapter>
       ) : null}
       {careers ? (
@@ -44,7 +41,6 @@ export default function TeamPage() {
         index={route.sections.indexOf(careers)}
         className="app-section px-4 pb-24 sm:px-8 md:px-16 lg:px-32"
       >
-        <RouteCopyProvider copy={careers.body?.copy}>
         <div className="mx-auto grid max-w-6xl gap-10 overflow-hidden rounded-[2rem] border border-main/15 bg-card/70 p-6 shadow-[0_30px_90px_rgba(0,107,112,.10)] backdrop-blur-md md:p-10 lg:grid-cols-[.75fr_1.25fr]">
           <div className="rounded-3xl bg-[#0b2526] p-7 text-white md:p-9">
             <span className="text-xs font-black tracking-[.2em] text-main uppercase">
@@ -63,7 +59,6 @@ export default function TeamPage() {
           </div>
           <CareerForm team={team} content={careers.body?.teamCareers} />
         </div>
-        </RouteCopyProvider>
       </RouteChapter>
       ) : null}
     </AnimatedRoutePage>
